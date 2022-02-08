@@ -1,0 +1,182 @@
+/* main styles */
+
+/* css variables */
+:root {
+    --col-brand-primary: #ff7b00;
+    --col-brand-secondary: rgb(0, 0, 0);
+    --col-brand-tertiary: #0063e5;
+    --col-dividers-borders: #e4e4e4;
+    --col-bg: #ffffff;
+    --font-fam: sans-serif;
+  }
+  
+  /* global */ 
+  html {
+    font-size: 16px; /* default - use rems for other sizes */
+    line-height: 1.4;
+    font-family: var(--font-fam);
+    background: var(--col-bg);
+    color: var(--col-brand-secondary);
+  }
+  
+  
+  /* layout & main components */
+  header {
+    margin-bottom: 4rem;
+    padding: 0 2%;
+    position: fixed;
+    width: 100vw;
+    border: 1px solid rgb(189, 189, 189);
+    height: 50px;
+  }
+  header nav {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 2%;
+    max-width: 1260px;
+    margin-right: auto;
+    margin-left: auto; 
+    align-items: center; 
+  }
+  
+  header nav a { 
+    text-align: center;
+  }
+  
+  main {
+    max-width: 1260px;
+    margin-right: auto;
+    margin-left: auto;  
+    margin-bottom: 0rem;
+    padding: 10rem 2% 0 2%;
+    border: 1px solid #0089e5;
+  }
+  
+  
+  
+  
+  footer {
+    width: 100%;
+    padding: 0 1rem 1rem 1rem;
+    text-align: center;
+  }
+  
+  
+  
+  /* typography */
+  
+  h1 { 
+    font-size: 3rem; /* 45px default */ 
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    line-height: 1.15em;
+  }
+  h2 {
+    font-size: 1.5rem; /* 32px default */
+  }
+  h3 {
+    font-size: 1.75rem; /* 28px default */
+    margin-bottom: 0.5rem;
+  }
+  h4 {
+    font-size: 2.125rem; /* 34px default */
+    line-height: 1.2;
+  }
+  
+  body, p, ol, ul {
+    font-weight: 500;
+  }
+  
+  input, textarea, button {
+    font-size: 1rem;
+    font-weight: 300;
+    font: var(--font-fam);
+  }
+  
+  a { 
+    color: var(--col-brand-primary);
+    text-decoration: none;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+    opacity: 0.65;
+  }
+  
+  /* forms */
+  input, textarea, button {
+    padding: 0.75rem 1rem;
+    font-size: 1.25rem;
+    border: none;
+    /* border-style: solid;
+    border-width: 0.0625rem; 1px default  */
+    /* border-color: var(--col-dividers-borders); */
+    /* margin-bottom: 1rem; */
+    height: 3.75rem;
+  }
+  label {
+    margin-bottom: 0.3125rem; /* 5px default */
+    display: block;
+  }
+  form p.error,
+  form p.success {
+    font-weight: 700;
+    display: none;
+  }
+  form p.error i {
+    color: var(--col-brand-primary);
+    margin-right: 0.5rem;
+  }
+  form p.success i {
+    color: seagreen;
+    margin-right: 0.5rem;
+  }
+  form .invalid {
+    border-color: red;
+  }
+  form .valid {
+    border-color: seagreen;
+  }
+  
+  
+  /* buttons */
+  button {  
+    background: #0063e5; 
+    background: linear-gradient(180deg, var(--col-brand-tertiary) 25%, var(--col-brand-primary) 100%);
+    font-weight: 500;
+    text-transform: uppercase;
+    color: var(--col-brand-secondary);
+  } 
+  
+  /* fancy button effects */
+  button {
+    overflow: hidden;
+    transition: 0.2s transform ease-in-out;
+    will-change: transform;
+    z-index: 0;
+  }
+  button::after {
+    background-color: #1c4eac ;
+    content: '';
+    display: block;
+    height: 140%;
+    width: 140%;
+    position: absolute;
+    left: -20%;
+    top: 0;
+    transform: translate(-100%, 0) rotate(10deg);
+    transition: 0.15s transform ease-out;
+    will-change: transform;
+    z-index: -1;
+  
+  }
+  button:hover::after {
+    transform: translate(0, 0);
+  }
+  button:hover {
+    transform: scale(1);
+    will-change: transform;
+    color: var(--col-brand-secondary)
+  }
+  
+  
