@@ -7,9 +7,9 @@ const Header = () => {
     return (
       <header>
         <nav>        
-          <h3 id = "logo"><strong>Gorge</strong>it</h3>
-            <Link to="/">Articles</Link>
-            <Link to="/topics">Topics</Link>
+          <h3 id = "logo">Newsy</h3>
+            <Link to="/"><h4>Articles</h4></Link>
+            <Link to="/topics"><h4>Topics</h4></Link>
             {Articles}
         </nav>
       </header>

@@ -9,7 +9,7 @@ export const getArticles = () => {
     return newsApi
         .get("/articles")
         .then(({ data }) => {
-            return data;
+            return data.articles;  // returns array of 'article' objects
         });
 };
  
