@@ -2,20 +2,21 @@
 
 /* css variables */
 :root {
-    --col-brand-primary: #ff7b00;
-    --col-brand-secondary: rgb(0, 0, 0);
+    --col-brand-primary: #d15f1c;
+    --col-brand-secondary: rgb(49, 49, 49);
     --col-brand-tertiary: #0063e5;
     --col-dividers-borders: #e7e7e7;
     --col-bg: #ffffff;
-    --font-fam: sans-serif;
+    --col-bg2: #eeeeee;
+    --font-fam: 'Poppins', sans-serif;
   }
   
   /* global */ 
   html {
     font-size: 16px; /* default - use rems for other sizes */
-    line-height: 1.4;
     font-family: var(--font-fam);
-    background: var(--col-bg);
+    line-height: 1.4;
+    background: var(--col-bg2);
     color: var(--col-brand-secondary);
   }
   
@@ -23,47 +24,95 @@
   /* layout & main components */
   header {
     margin-bottom: 2rem;
-    padding: 0 2%;
+    padding: 0 3%;
     position: fixed;
+    top: 0;
     width: 100%;
-    background: var(--col-bg);
+    background: var(--col-brand-primary);
     box-shadow: 0 2px 4px 0 rgba(0,0,0, 0.15);
   }
   header nav {
     display: grid;
     grid-template-columns: 1fr auto auto;
-    grid-gap: 4%;
+    grid-gap: 8%;
     max-width: 1260px;
     margin-right: auto;
     margin-left: auto; 
     align-items: center; 
     height: 54px;
+    color: var(--col-brand-secondary)
+  }
+  header nav h3#logo {
+    color: #fff;
+  }
+  header nav a {
+    font-weight: 700;
   }
   
   header nav a { 
     text-align: center;
+    color: var(--col-bg)
   }
+
   
+  .sub-nav {
+    width: 100%;
+    min-height: 44px;
+    display: grid;
+    align-items: center;
+    grid-gap: 2%;
+    margin-bottom: 2em;
+    text-align: center;
+    background: var(--col-brand-secondary);
+    color: var(--col-bg);
+    font-size: 0.875rem;   /* 14px default */
+    padding: 0.5rem 2%;
+    margin-top: 54px;
+  }
+  .sub-nav p {
+    display: grid;
+    grid-gap: 3%;
+    grid-template-columns: auto auto auto;
+    margin-bottom: 0;
+  }
+  .sub-nav p a {
+    border: 1px solid var(--col-bg);
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+    color: var(--col-bg);
+    border-radius: 20px;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.04rem;
+  }
+  .sub-nav a:hover,
+  .sub-nav a.active {
+    background: var(--col-bg);
+    color: var(--col-brand-secondary);
+    text-decoration: none;
+    opacity: 1;
+  }
+
   main {
     max-width: 1260px;
     margin: 0 auto 0 auto; 
-    padding: 54px 2% 0 2%;
+    padding: 0 2%;
   }
-
-  .sub-nav {
-    width: 100%;
-    height: 54px;
-    display: grid;
-    align-items: center;
-    margin-bottom: 2em;
-    text-align: center;
-    border-bottom: 1px solid var(--col-dividers-borders);
-    
-  }
-
   main article {
-    margin-bottom: 2em;
-    border-bottom: 1px solid var(--col-dividers-borders);
+    margin: 0 auto 1em auto;
+    border-radius: 5px;
+    background: var(--col-bg);
+    padding: 5%;
+    max-width: 96%;
+    box-shadow: 0px 3px 15px rgba(0,0,0,0.2);
+
+  }
+  main article h2 a {
+    color: var(--col-brand-secondary);
+  }
+  main article .post-meta { 
+    font-size: 0.875rem;   /* 14px default */
+    font-weight: 500;
   }
     
     
@@ -75,24 +124,27 @@
     
   
   /* typography */
+
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    line-height: 1.3em;
+    letter-spacing: -0.07rem;
+  }
   
   h1 { 
     font-size: 3rem; /* 48px default */ 
-    font-weight: 500;
-    margin-bottom: 0.5rem;
-    line-height: 1.15em;
   }
 
   h1.articles-heading {
     font-size: 1.3125rem; /* 21px default - doesn't need to be imposing */
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
   }
 
   h2 {
-    font-size: 2rem; /* 32px default */
+    font-size: 1.75rem; /* 28px default */
   }
   h3 {
-    font-size: 1.75rem; /* 28px default */
+    font-size: 1.5rem; /* 24px default */
     margin-bottom: 0.5rem;
   }
   h4 {
@@ -101,7 +153,7 @@
   }
   
   body, p, ol, ul {
-    font-weight: 500;
+    font-weight: 400;
   }
   
   input, textarea, button {

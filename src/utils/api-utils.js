@@ -13,3 +13,11 @@ export const getArticles = () => {
         });
 };
  
+export const getTopics = () => {
+    return newsApi
+        .get("/topics")
+        .then(({ data }) => {
+            return data.topics;  // returns array of 'topics' objects
+        });
+};
+ 

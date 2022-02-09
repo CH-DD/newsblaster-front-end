@@ -8,8 +8,8 @@ const Header = () => {
       <header>
         <nav>        
           <h3 id = "logo">Newsy</h3>
-            <Link to="/"><h4>Articles</h4></Link>
-            <Link to="/topics"><h4>Topics</h4></Link>
+            <Link to="/">Articles</Link>
+            <Link to="/topics">Topics</Link>
             {Articles}
         </nav>
       </header>
