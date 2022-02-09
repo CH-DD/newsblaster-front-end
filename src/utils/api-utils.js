@@ -7,11 +7,12 @@ const newsApi = axios.create({
 
 export const getArticles = () => {
     return newsApi
-        .get("/articles")
+        .get("/articles" )
         .then(({ data }) => {
             return data.articles;  // returns array of 'article' objects
         });
 };
+
  
 export const getTopics = () => {
     return newsApi

@@ -1,6 +1,6 @@
 // import react stuff
 import { useEffect, useState } from "react";
-import { getArticles, getTopics } from "../utils/api-utils.js";
+import { getArticles, getArticlesSortedByComments } from "../utils/api-utils.js";
 import { Link, NavLink } from 'react-router-dom';  // handles links
 
 // import components
@@ -13,7 +13,6 @@ const Articles = () => {
     // get articles & topics data from api. 
     // state allows props to be passed into child components.
     const [articles, setArticles] = useState([]);
-    // const [topics, setTopics] = useState([]);
  
     useEffect(() => {
       getArticles().then((articlesFromApi) => {
@@ -21,11 +20,6 @@ const Articles = () => {
       });
     }, []);
 
-    // useEffect(() => {
-    //   getTopics().then((topicsFromApi) => {
-    //     setTopics(topicsFromApi); 
-    //   });
-    // }, []);
 
     return (
       <> 
@@ -42,10 +36,16 @@ const Articles = () => {
             })
           } */}
           
-          <p>  
-            <NavLink exact to="/articles" activeClassName="active" className="active">Latest</NavLink> 
-            <NavLink exact to="/articles?sort_by=comment_count" activeClassName="active">Comments</NavLink> 
-            <NavLink exact to="/articles?sort_by=votes" activeClassName="active">Popular</NavLink> 
+        
+
+          {/* /articles?sort_by=comment_count
+          /articles?sort_by=votes */}
+
+
+          <p>
+            <NavLink to="/articles" activeclassname="active" className="active">Latest</NavLink> 
+            <NavLink to="/tbc1" activeclassname="active">Comments</NavLink> 
+            <NavLink to="/tbc2" activeclassname="active">Popular</NavLink> 
           </p>
         </section>
 
