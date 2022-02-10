@@ -50,23 +50,24 @@ const Articles = () => {
         </section>
 
         <main>
-        
 
           <h1 className="articles-heading">Latest</h1>
+          <section className="articles-wrapper">
           
-          {
-            // go through all articles in the array
-            articles.map((article) => {
+            {
+              // go through all articles in the array
+              articles.map((article) => {
 
-              // article preview
-              return (
-                <article className="article-preview" key={article.article_id}>
-                  <ArticlePreview article={article} />
-                </article>
-              ) 
-            })
-            
-          }
+                // article preview
+                return (
+                  <article className="article-preview" key={article.article_id}>
+                    <ArticlePreview article={article} />
+                  </article>
+                ) 
+              })
+              
+            }
+          </section>
         </main>
       </> 
 
