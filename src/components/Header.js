@@ -7,8 +7,8 @@ const Header = () => {
     return (
       <header>
         <nav>        
-          <h3 id = "logo">Newsy</h3>
-            <Link to="/articles">Articles</Link>
+          <h3 id = "logo">News<span>blaster </span> <small>blasting words in your face 24/7</small></h3>
+            <Link to="/articles">News</Link>
             <Link to="/topics">Topics</Link>
             {Articles}
         </nav>

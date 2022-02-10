@@ -4,12 +4,12 @@
 :root {
     /* --col-brand-primary: #2ecc8a; */
     /* --col-brand-primary: #73ef37; */
-    --col-brand-primary: #d15f1c;
-    --col-brand-secondary: rgb(49, 49, 49);
-    --col-brand-tertiary: #0063e5;
+    --col-brand-primary: #d33b0c;
+    --col-brand-secondary: #1f1f1f;
+    --col-brand-tertiary: #fa9a13;
     --col-dividers-borders: #e7e7e7;
     --col-bg: #ffffff;
-    --col-bg2: #eeeeee;
+    --col-bg2: #f1f1f1;
     --font-fam: 'Poppins', sans-serif;
 }
   
@@ -28,9 +28,13 @@ header {
   padding: 0 3%;
   position: fixed;
   top: 0;
+  z-index: 9999; 
   width: 100%;
+  /* background: var(--col-brand-primary); */
   background: var(--col-brand-primary);
-  box-shadow: 0 2px 4px 0 rgba(0,0,0, 0.15);
+  /* background: linear-gradient(90deg, var(--col-brand-primary) 0%, var(--col-brand-tertiary) 100%); */
+  background: linear-gradient(90deg, #922cd6 0%, #fd1d1d 50%, #fa9a13 100%);
+  box-shadow: 0 2px 4px 0 rgba(0,0,0, 0.2);
 }
 header nav {
   display: grid;
@@ -40,11 +44,18 @@ header nav {
   margin-right: auto;
   margin-left: auto; 
   align-items: center; 
-  height: 54px;
+  height: 62px;
   color: var(--col-brand-secondary)
 }
 header nav h3#logo {
   color: #fff;
+  margin-top: 8px;
+}
+header nav h3#logo span {
+  color: var(--col-brand-tertiary);
+}
+header nav h3#logo small {
+  display:none;
 }
 header nav a {
   font-weight: 700;
@@ -58,25 +69,33 @@ header nav a {
 
 .sub-nav {
   width: 100%;
-  background: var(--col-brand-secondary);
+  /* background: var(--col-brand-secondary); */
   color: var(--col-bg);
   font-size: 0.875rem;   /* 14px default */
-  padding: 0.5em 2% 0 2%;
-  margin-top: 54px;
+  padding: 0.75em 2% 0.75em 2%;
+  margin-top: 62px;
+  
 }
 .sub-nav p {
   margin: 0 auto;
+  max-width: 1260px;
   text-align: center;
-}
-.sub-nav p a {
-  border: 1px solid var(--col-bg);
-  padding: 0.75rem 1.5rem;
-  color: var(--col-bg);
-  border-radius: 25px;
   font-size: 12px;
+  color: var(--col-brand-secondary);
+}
+
+.sub-nav p span.label {
+  margin-right: 0.5rem;
+}
+
+.sub-nav p a {
+  /* border: 1px solid var(--col-brand-primary); */
+  padding: 0.65rem 1.25rem;
+  border-radius: 25px;
+  
   text-transform: uppercase;
   letter-spacing: 0.04rem;
-  margin: 0 3px 6px 3px;
+  margin: 0 2px 6px 2px;
   display: inline-block;
 }
 .sub-nav a:hover,
@@ -85,17 +104,18 @@ header nav a {
   color: var(--col-brand-secondary);
   text-decoration: none;
   opacity: 1;
+  border-color: var(--col-bg);
 }
 
 main {
   max-width: 1260px;
-  margin: 1.5rem auto 0 auto; 
+  margin: 0 auto 0 auto; 
   padding: 0 2%;
 }
 
 main .articles-wrapper {
   display: grid;
-  grid-gap: 20px;
+  grid-gap: 1rem;
   grid-template-columns: 1fr;
   margin: 0 auto 1em auto;
 }
@@ -112,6 +132,9 @@ main article h2 a {
 main article .post-meta { 
   font-size: 0.875rem;   /* 14px default */
   font-weight: 500;
+}
+main article .post-meta .topic {
+    font-weight: 700;
 }
   
   
@@ -143,7 +166,7 @@ h2 {
   font-size: 1.75rem; /* 28px default */
 }
 h3 {
-  font-size: 1.5rem; /* 24px default */
+  font-size: 1.75rem; /* 28px default */
   margin-bottom: 0.5rem;
 }
 h4 {
@@ -252,8 +275,33 @@ button:hover {
 /* medium devices, 768px + */
 @media only screen and (min-width: 768px) {
 
+  header nav h3#logo small {
+    color: var(--col-bg);
+    font-size: 0.75rem;
+    letter-spacing: 0;
+    font-weight: 700;
+    margin-left: 1rem;
+    display: inline;
+  }
+
+  .sub-nav p {
+    text-align: right; 
+  }
+
   main .articles-wrapper {
     grid-template-columns: 1fr 1fr;
+  }
+  main article:nth-child(1) {
+    grid-column: 1 / 3;
+  }
+  main article:nth-child(1) h2 {
+    font-size: 2.75rem;
+  }
+  main .articles-wrapper h2 {
+    font-size: 2em; /* 32px default*/
+  }
+  h1.articles-heading {
+    font-size: 3rem;
   }
 
 }
@@ -265,8 +313,43 @@ button:hover {
     padding: 0;
   }
   main .articles-wrapper {
-    grid-template-columns: 1fr 1fr 1fr;
+    /* grid-template-columns: 1fr 1fr 1fr; */
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 2rem;
+    display: grid;
   }
+  main article:nth-child(1) {
+    grid-column: 1 / 3;
+  }
+
+  main article:nth-child(5) {
+    grid-column: 2 / 4;
+  }
+  main article:nth-child(9) {
+    grid-column: 3 / 5;
+  }
+  main article:nth-child(10) {
+    grid-column: 1 / 4;
+  }
+  main article:nth-child(14) {
+    grid-column: 3 / 5;
+  }
+
+  h1.articles-heading {
+    font-size: 4rem;
+  }
+
+  section {
+
+    grid-template-columns: repeat(3, 1fr);
+
+  }
+  
+
+
+
+
+
 
 }
 

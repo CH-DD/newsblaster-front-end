@@ -43,15 +43,16 @@ const Articles = () => {
 
 
           <p>
+            {/* <span className="label">Sort by</span> */}
             <NavLink to="/articles" activeclassname="active" className="active">Latest</NavLink> 
-            <NavLink to="/tbc1" activeclassname="active">Comments</NavLink> 
+            <NavLink to="/tbc1" activeclassname="active">Most Commented</NavLink> 
             <NavLink to="/tbc2" activeclassname="active">Popular</NavLink> 
           </p>
         </section>
 
         <main>
 
-          <h1 className="articles-heading">Latest</h1>
+          {/* <h1 className="articles-heading">Latest...</h1> */}
           <section className="articles-wrapper">
           
             {

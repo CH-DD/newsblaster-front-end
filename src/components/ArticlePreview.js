@@ -25,7 +25,7 @@ const ArticlePreview = (props) => {
             </h2>
             
             <section className="post-meta">
-            <p>by {props.article.author} · <Link to={`/topics/${props.article.topic}`}>{props.article.topic}</Link> · <time dateTime={formattedDate}>{formattedDate}</time></p>
+            <p>by {props.article.author} · <Link className="topic" to={`/topics/${props.article.topic}`}>{props.article.topic}</Link> · <time dateTime={formattedDate}>{formattedDate}</time></p>
             <p>{props.article.comment_count} Comments · {props.article.votes} Likes</p>
             </section>
         </>
