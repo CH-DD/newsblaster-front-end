@@ -7,7 +7,7 @@
     --col-brand-primary: #d33b0c;
     --col-brand-secondary: #1f1f1f;
     --col-brand-tertiary: #fa9a13;
-    --col-dividers-borders: #e7e7e7;
+    --col-dividers-borders: #d1d1d1;
     --col-bg: #ffffff;
     --col-bg2: #f1f1f1;
     --font-fam: 'Poppins', sans-serif;
@@ -17,7 +17,7 @@
 html {
   font-size: 16px; /* default - use rems for other sizes */
   font-family: var(--font-fam);
-  line-height: 1.4;
+  line-height: 1.5;
   background: var(--col-bg2);
   color: var(--col-brand-secondary);
 }
@@ -88,18 +88,19 @@ header nav a {
   margin-right: 0.5rem;
 }
 
-.sub-nav p a {
+.sub-nav p button {
   /* border: 1px solid var(--col-brand-primary); */
   padding: 0.65rem 1.25rem;
   border-radius: 25px;
-  
+  font-size: 12px;
   text-transform: uppercase;
   letter-spacing: 0.04rem;
   margin: 0 2px 6px 2px;
   display: inline-block;
+  background: none;
 }
-.sub-nav a:hover,
-.sub-nav a.active {
+.sub-nav button:hover,
+.sub-nav button.active {
   background: var(--col-bg);
   color: var(--col-brand-secondary);
   text-decoration: none;
@@ -135,6 +136,29 @@ main article .post-meta {
 }
 main article .post-meta .topic {
     font-weight: 700;
+}
+main article .post-meta .author-topic-and-date {
+  border-bottom: 1px dashed var(--col-dividers-borders);
+  padding-bottom: 0.75rem;
+  margin-bottom: 0.75rem;
+  width: auto;
+}
+main article .post-meta .comments-and-likes-count {
+  font-size: 1rem;
+  margin-bottom: 0;
+}
+main article .post-meta .comments-and-likes-count a.comments-link {
+  color: var(--col-brand-secondary);
+}
+main article .post-meta .comments-and-likes-count a.comments-link:hover {
+  color: var(--col-brand-primary);
+  text-decoration: none;
+}
+main article .post-meta i {
+  margin-right: 0.25em;
+}
+main article .comments-and-likes-count .fa-thumbs-up {
+  margin-left: 1.75rem;
 }
   
   
@@ -231,7 +255,7 @@ form .valid {
 
 
 /* buttons */
-button {  
+/* button {  
   background: #0063e5; 
   background: linear-gradient(180deg, var(--col-brand-tertiary) 25%, var(--col-brand-primary) 100%);
   font-weight: 500;
@@ -239,7 +263,6 @@ button {
   color: var(--col-brand-secondary);
 } 
 
-/* fancy button effects */
 button {
   overflow: hidden;
   transition: 0.2s transform ease-in-out;
@@ -268,7 +291,7 @@ button:hover {
   transform: scale(1);
   will-change: transform;
   color: var(--col-brand-secondary)
-}
+} */
 
 /* --------- MEDIA QUERIES---------  */
 

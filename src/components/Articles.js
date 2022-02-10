@@ -11,42 +11,60 @@ import { ArticlePreview } from "../components/ArticlePreview.js";
 const Articles = () => {  
 
     // get articles & topics data from api. 
-    // state allows props to be passed into child components.
+    // - state allows props to be passed into child components.
+    // - to sort articles, update sortBy state and params eg. getArticles(sortBy)
+    // - display 'loading' message whilst retrieving data
     const [articles, setArticles] = useState([]);
+    const [sortBy, setSortBy] = useState("created_at");
+    const [isLoading, setIsLoading] = useState("true");
  
     useEffect(() => {
-      getArticles().then((articlesFromApi) => {
-        setArticles(articlesFromApi); 
+      getArticles(sortBy).then((articlesFromApi) => {  
+        setArticles(articlesFromApi);
+        setIsLoading(false);
       });
-    }, []);
+    }, [sortBy]);
 
+  
 
+    // toggle 'sort by' button state.
+    // - if 'isActive' is true, replace style class with inactive
+    const [isActive, setActive] = useState("false");
+    const ToggleClass = () => {
+      setActive(!isActive);
+    };
+
+    if (isLoading) return <h2 className="loading-message"> <br></br><br></br><br></br><br></br>Loading... <i class="fa-solid fa-spinner"></i></h2>;
     return (
       <> 
           <section className="sub-nav">
-          {/* {
-            topics.map((topic) => {
-
-              // topic preview
-              return (
-                <p>
-                  {topic.slug}
-                </p>
-              ) 
-            })
-          } */}
-          
-        
-
-          {/* /articles?sort_by=comment_count
-          /articles?sort_by=votes */}
-
-
           <p>
-            {/* <span className="label">Sort by</span> */}
-            <NavLink to="/articles" activeclassname="active" className="active">Latest</NavLink> 
-            <NavLink to="/tbc1" activeclassname="active">Most Commented</NavLink> 
-            <NavLink to="/tbc2" activeclassname="active">Popular</NavLink> 
+            <button          
+              className={isActive ? "active" : "inactive"}  // button 1
+              onClick = {() => {
+                  setSortBy("created_at");
+                  ToggleClass();
+            }}>
+              Latest
+            </button>
+
+            <button           
+              className={isActive ? "inactive" : "active"} // button 2 
+              onClick = {() => {
+                  setSortBy("comment_count");
+                  ToggleClass();
+            }}>
+              Most Commented
+            </button>
+
+            <button 
+              className={isActive ? "inactive" : "active"} // button 2 
+              onClick = {() => {
+                  setSortBy("votes");
+                  ToggleClass();
+            }}>
+              Popular
+            </button>
           </p>
         </section>
 
