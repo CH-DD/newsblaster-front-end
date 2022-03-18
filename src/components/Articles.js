@@ -1,7 +1,6 @@
 // import react stuff
 import { useEffect, useState } from "react";
-import { getArticles, getArticlesSortedByComments } from "../utils/api-utils.js";
-import { Link, NavLink } from 'react-router-dom';  // handles links
+import { getArticles } from "../utils/api-utils.js";
 
 // import components
 import { ArticlePreview } from "../components/ArticlePreview.js";
@@ -25,8 +24,6 @@ const Articles = () => {
       });
     }, [sortBy]);
 
-  
-
     // toggle 'sort by' button state.
     // - if 'isActive' is true, replace style class with inactive
     const [isActive, setActive] = useState("false");
@@ -34,10 +31,10 @@ const Articles = () => {
       setActive(!isActive);
     };
 
-    if (isLoading) return <h2 className="loading-message"> <br></br><br></br><br></br><br></br>Loading... <i class="fa-solid fa-spinner"></i></h2>;
+    if (isLoading) return <p className="loading-message"><i className="fa-solid fa-spinner"></i>Loading</p>;
     return (
       <> 
-          <section className="sub-nav">
+        <section className="sub-nav">
           <p>
             <button          
               className={isActive ? "active" : "inactive"}  // button 1
@@ -68,7 +65,7 @@ const Articles = () => {
           </p>
         </section>
 
-        <main>
+        <main className= "articles-page">
 
           {/* <h1 className="articles-heading">Latest...</h1> */}
           <section className="articles-wrapper">
