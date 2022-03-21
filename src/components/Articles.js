@@ -1,15 +1,17 @@
-// import react stuff
+// React stuff
 import { useEffect, useState } from "react";
-import { getArticles } from "../utils/api-utils.js";
+import { getArticles } from "../utils/apiUtils.js";
 
-// import components
+// Custom utils & components
 import { ArticlePreview } from "../components/ArticlePreview.js";
+import { pageTitle} from "../utils/pageTitle"; 
 
 
-// articles component
 const Articles = () => {  
 
-    // get articles & topics data from api. 
+  // Set page title
+  pageTitle( "NewsBlaster...blasting words in your face 24/7");
+
     // - state allows props to be passed into child components.
     // - to sort articles, update sortBy state and params eg. getArticles(sortBy)
     // - display 'loading' message whilst retrieving data
@@ -17,6 +19,7 @@ const Articles = () => {
     const [sortBy, setSortBy] = useState("created_at");
     const [isLoading, setIsLoading] = useState("true");
  
+    // useEffect: get article data from API
     useEffect(() => {
       getArticles(sortBy).then((articlesFromApi) => {  
         setArticles(articlesFromApi);

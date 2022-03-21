@@ -1,8 +1,11 @@
-// import react stuff
+// React stuff
 import { useEffect, useState } from "react"; 
-import { getSingleArticleById } from "../utils/api-utils.js"; // data fetching
-import { useParams, Link } from 'react-router-dom';  // to get article_id from query, use links
-import { formatDate } from "../utils/formatDate"; // custom date formatting
+import { useParams, Link } from 'react-router-dom'; 
+
+// Custom utils & components
+import { getSingleArticleById } from "../utils/apiUtils.js"; // data fetching
+import { formatDate } from "../utils/formatDate"; 
+import { pageTitle} from "../utils/pageTitle"; 
 
 
 const SingleArticle = () => {  
@@ -23,6 +26,9 @@ const SingleArticle = () => {
         setIsLoading(false);
       });
     }, []);
+
+    // Set page title 
+    pageTitle(currentArticle.title + " | Newsblaster");
  
     // TO DO - Add in conditional loading logic
     return (

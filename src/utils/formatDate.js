@@ -1,5 +1,5 @@
-/* date formatter 
-    - converts dates from ISO8601 to more readable format 
+/* Date Formatter 
+    - converts dates from long ISO8601 format to more readable format 
     - formatting style based on user's locale
 */
 export const formatDate = (suppliedLongDate) => {

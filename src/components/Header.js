@@ -1,7 +1,7 @@
-import { useParams, Link } from 'react-router-dom';  // handles links
+// React stuff
+import { useParams, Link } from 'react-router-dom';  
 
 const Header = () => {  
-
   const { Articles } = useParams(); // useParams returns an object containing the url params - { topic_slug: 'url_value' }
 
     return (
