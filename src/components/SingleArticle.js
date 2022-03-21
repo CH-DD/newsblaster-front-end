@@ -41,22 +41,25 @@ const SingleArticle = () => {
       <main className = "article-page">
 
         <article>
+            <section className="post-meta">
+                <p className="author-topic-and-date  no-border"><Link className="topic" to={`/topics/${currentArticle.topic}`}>{currentArticle.topic}</Link> · {formatDate(currentArticle.created_at)}</p>
+            </section>
+
             <h2> { currentArticle.title }</h2>  
             <p> { currentArticle.body }</p>  
 
             <section className="post-meta">
                 
-                <p className="author-topic-and-date">by {currentArticle.author} · <Link className="topic" to={`/topics/${currentArticle.topic}`}>{currentArticle.topic}</Link> · {formatDate(currentArticle.created_at)}</p>
-
+                <p className="author-topic-and-date">by {currentArticle.author}</p>
 
                 <p className="comments-and-likes-count">
-                    <Link className="comments-link" title="View Comments" to="#comments">
-                        <i className="fa-regular fa-comment" aria-label="Comments" title="Comments" ></i> {currentArticle.comment_count} 
-                    </Link>
-                     <i className="fa-regular fa-thumbs-up" aria-label="Likes" title="Likes"></i> {currentArticle.votes} </p>
+                  <a className="comments-link" title="View Comments" href="#comments">
+                    <i className="fa-regular fa-comment" aria-label="Comments" title="Comments" ></i> {currentArticle.comment_count}
+                  </a>
+                  <i className="fa-regular fa-thumbs-up" aria-label="Likes" title="Likes"></i> {currentArticle.votes} </p>
             </section>
 
-            <section className="comments">
+            <section id="comments">
               <h3>Comments section to go here</h3>
             </section>
 

@@ -17,9 +17,9 @@ const ArticlePreview = (props) => {
                 <p className="author-topic-and-date">by {props.article.author} · <Link className="topic" to={`/topics/${props.article.topic}`}>{props.article.topic}</Link> · {formatDate(props.article.created_at)} </p>
 
                 <p className="comments-and-likes-count">
-                    <Link className="comments-link" title="View Comments" to={`/articles/${props.article.article_id}#comments` }>
+                    <a className="comments-link" title="View Comments" href={`/articles/${props.article.article_id}#comments` }>
                         <i className="fa-regular fa-comment" aria-label="Comments" title="Likes" ></i> {props.article.comment_count} 
-                    </Link>
+                    </a>
                      <i className="fa-regular fa-thumbs-up" aria-label="Likes" title="Likes"></i> {props.article.votes} </p>
             </section>
         </>
