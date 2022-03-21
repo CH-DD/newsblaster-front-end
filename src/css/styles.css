@@ -160,13 +160,13 @@ main {
   padding: 0 2%;
 }
 
-main p.loading-message {
+p.loading-message {
   margin: 45vh auto 0 auto;
   text-align: center;
   font-weight: 300;
   line-height: 3;
 }
-main p.loading-message i.fa-spinner {
+p.loading-message i.fa-spinner {
   font-size: 3em;
   color: var(--col-brand-primary);
   display: block;

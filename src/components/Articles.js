@@ -17,7 +17,7 @@ const Articles = () => {
     // - display 'loading' message whilst retrieving data
     const [articles, setArticles] = useState([]);
     const [sortBy, setSortBy] = useState("created_at");
-    const [isLoading, setIsLoading] = useState("true");
+    const [isLoading, setIsLoading] = useState(true);
  
     // useEffect: get article data from API
     useEffect(() => {

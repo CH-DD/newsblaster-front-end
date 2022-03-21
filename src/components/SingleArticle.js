@@ -25,12 +25,18 @@ const SingleArticle = () => {
         setCurrentArticle(fetchedData);
         setIsLoading(false);
       });
-    }, []);
+    }, [article_id]);
 
-    // Set page title 
-    pageTitle(currentArticle.title + " | Newsblaster");
- 
-    // TO DO - Add in conditional loading logic
+     // Set page title - allow for data fetching delay
+     if (isLoading) {
+      pageTitle("Loading...");
+    } else {
+      pageTitle(currentArticle.title + " | Newsblaster");
+    }
+   
+    // Conditional loading
+    if (isLoading) return <p className="loading-message"><i className="fa-solid fa-spinner"></i>Loading</p>;
+
     return (
       <main className = "article-page">
 
