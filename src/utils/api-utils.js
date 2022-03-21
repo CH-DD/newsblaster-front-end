@@ -15,6 +15,15 @@ export const getArticles = (sort_by) => {
         });
 };
 
+// this bit doesn't work
+export const getSingleArticle = (article_id) => {
+    return newsApi
+        .get(`/articles/${article_id}`)
+        .then(({ data }) => {
+            return data.article;  // returns single article
+        });
+};
+
  
 export const getTopics = () => {
     return newsApi

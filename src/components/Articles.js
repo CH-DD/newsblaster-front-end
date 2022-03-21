@@ -26,7 +26,7 @@ const Articles = () => {
 
     // toggle 'sort by' button state.
     // - if 'isActive' is true, replace style class with inactive
-    const [isActive, setActive] = useState("false");
+    const [isActive, setActive] = useState(false);
     const ToggleClass = () => {
       setActive(!isActive);
     };
@@ -37,10 +37,10 @@ const Articles = () => {
         <section className="sub-nav">
           <p>
             <button          
-              className={isActive ? "active" : "inactive"}  // button 1
+              className={"active"}  // button 1
               onClick = {() => {
                   setSortBy("created_at");
-                  ToggleClass();
+                  ToggleClass("active");
             }}>
               Latest
             </button>
@@ -49,7 +49,7 @@ const Articles = () => {
               className={isActive ? "inactive" : "active"} // button 2 
               onClick = {() => {
                   setSortBy("comment_count");
-                  ToggleClass();
+                  ToggleClass("active");
             }}>
               Most Commented
             </button>
@@ -58,7 +58,7 @@ const Articles = () => {
               className={isActive ? "inactive" : "active"} // button 2 
               onClick = {() => {
                   setSortBy("votes");
-                  ToggleClass();
+                  ToggleClass("active");
             }}>
               Popular
             </button>
@@ -69,9 +69,8 @@ const Articles = () => {
 
           {/* <h1 className="articles-heading">Latest...</h1> */}
           <section className="articles-wrapper">
-          
-            {
-              // go through all articles in the array
+    
+            {              // go through all articles in the array
               articles.map((article) => {
 
                 // article preview
