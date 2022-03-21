@@ -70,7 +70,7 @@ const Articles = () => {
           {/* <h1 className="articles-heading">Latest...</h1> */}
           <section className="articles-wrapper">
     
-            {              // go through all articles in the array
+            { // go through all articles in the array
               articles.map((article) => {
 
                 // article preview

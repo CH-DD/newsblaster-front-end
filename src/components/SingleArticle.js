@@ -1,38 +1,54 @@
 // import react stuff
-import { useEffect, useState } from "react"; // may not need
-import { getSingleArticle } from "../utils/api-utils.js"; // may not need
-import { useParams } from 'react-router-dom';  // to get article_id
+import { useEffect, useState } from "react"; 
+import { getSingleArticleById } from "../utils/api-utils.js"; // data fetching
+import { useParams, Link } from 'react-router-dom';  // to get article_id from query, use links
+import { formatDate } from "../utils/formatDate"; // custom date formatting
+
 
 const SingleArticle = () => {  
 
-    // get articles & topics data from api. 
-    // - state allows props to be passed into child components.
-    // - to sort articles, update sortBy state and params eg. getArticles(sortBy)
-    // - display 'loading' message whilst retrieving data
-    const [articles, setArticles] = useState([]);
-    const [isLoading, setIsLoading] = useState("true");
+    // State : current article data 
+    const [currentArticle, setCurrentArticle] = useState({});
+    
+    // State: loading message whilst retrieving data
+    const [isLoading, setIsLoading] = useState(true);
 
-    // state - individual article
-    const [articleDetails, setArticleDetails] = useState({});
- 
+    // useParams: grab current article id parameter from URL
+    const { article_id } = useParams();
+
+    // useEffect: get article data from API
     useEffect(() => {
-      getSingleArticle().then((theArticle) => {  
-        setArticleDetails(theArticle);
+      getSingleArticleById(article_id).then((fetchedData) => {  
+        setCurrentArticle(fetchedData);
         setIsLoading(false);
       });
     }, []);
-
-    // useParams: grab current article id parameter
-    const { article_id } = useParams();
-    console.log(articles)
-
-
+ 
+    // TO DO - Add in conditional loading logic
     return (
       <main className = "article-page">
+
         <article>
-            <h2> { article_id }An individual article</h2>  
-            {/* need to get the title in here ^^  */}
-            {/* {props.article.title} */}
+            <h2> { currentArticle.title }</h2>  
+            <p> { currentArticle.body }</p>  
+
+            <section className="post-meta">
+                
+                <p className="author-topic-and-date">by {currentArticle.author} · <Link className="topic" to={`/topics/${currentArticle.topic}`}>{currentArticle.topic}</Link> · {formatDate(currentArticle.created_at)}</p>
+
+
+                <p className="comments-and-likes-count">
+                    <Link className="comments-link" title="View Comments" to="#comments">
+                        <i className="fa-regular fa-comment" aria-label="Comments" title="Comments" ></i> {currentArticle.comment_count} 
+                    </Link>
+                     <i className="fa-regular fa-thumbs-up" aria-label="Likes" title="Likes"></i> {currentArticle.votes} </p>
+            </section>
+
+            <section className="comments">
+              <h3>Comments section to go here</h3>
+            </section>
+
+
         </article>
       </main>
     )
