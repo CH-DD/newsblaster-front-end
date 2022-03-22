@@ -6,6 +6,7 @@
     --col-brand-secondary: #1f1f1f;
     --col-brand-tertiary: #fa9a13;
     --col-dividers-borders: #d1d1d1;
+    --col-text-dk-grey: #595959;
     --col-bg: #ffffff;
     --col-bg2: #f1f1f1;
     --font-fam: 'Poppins', sans-serif;
@@ -27,24 +28,31 @@ html {
 h1, h2, h3, h4, h5, h6 {
   font-weight: 700;
   line-height: 1.3em;
-  letter-spacing: -0.07rem;
 }
 h1 { 
   font-size: 3rem; /* 48px default */ 
+  letter-spacing: -0.07rem;
 }
 h1.articles-heading {
   font-size: 1.3125rem; /* 21px default - doesn't need to be imposing */
   margin-bottom: 1rem;
+  letter-spacing: -0.07rem;
 }
 h2 {
   font-size: 1.75rem; /* 28px default */
+  letter-spacing: -0.07rem;
 }
 h3 {
-  font-size: 1.75rem; /* 28px default */
+  font-size: 1.3125rem; /* 21px default */
   margin-bottom: 0.5rem;
+  letter-spacing: -0.07rem;
 }
 h4 {
-  font-size: 1.3125rem; /* 21px default */
+  font-size: 1rem; /* 16px default */
+  line-height: 1.2;
+}
+h5 {
+  font-size: 0.875rem; /* 14px default */
   line-height: 1.2;
 }
 body, p, ol, ul {
@@ -94,6 +102,7 @@ header nav {
 header nav h3#logo {
   color: #fff;
   margin-top: 8px;
+  font-size: 1.75rem; /* 28px default */
 }
 header nav h3#logo span {
   color: var(--col-brand-tertiary);
@@ -209,11 +218,6 @@ main article .post-meta .author-topic-and-date {
   margin-bottom: 0.75rem;
   width: auto;
 }
-main article .post-meta .author-topic-and-date.no-border {
-  border-bottom: none;
-  padding-bottom: 0;
-  margin-bottom: 0;
-}
 main article .post-meta .comments-and-likes-count {
   font-size: 1rem;
   margin-bottom: 0;
@@ -243,6 +247,68 @@ main.article-page article  {
   grid-gap: 1rem;
   grid-template-columns: auto;
   margin-top: 72px;
+}
+
+
+main article .post-meta.before-heading .author-topic-and-date {
+  border-bottom: none;
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+main.article-page article h2 {
+  margin-bottom: 0;
+}
+main.article-page article .post-meta.after-heading {
+  display: grid;
+  grid-template-columns: auto auto;
+  border-bottom: 1px dashed var(--col-dividers-borders);
+  margin-bottom: 1rem;
+}
+main.article-page article .post-meta.after-heading .author-topic-and-date {
+  border-bottom: none;
+  margin-bottom: 0;
+} 
+main.article-page article .comments-and-likes-count {
+  justify-self: end;
+}
+
+/* articles page - comments */
+main.article-page .comments {
+  margin-top: 2rem;
+  border-top: 1px dashed var(--col-dividers-borders);
+  padding-top: 0.75rem;
+}
+main.article-page .comments h3 {
+  margin-bottom: 2rem;
+}
+main.article-page .comments h3 i {
+  margin-right: 6px; 
+}
+main.article-page .comments h3 .count {
+  font-weight: 400;
+  color: var(--col-text-dk-grey);
+}
+main.article-page .comments p {
+  font-size: 0.875rem;
+  color: var(--col-text-dk-grey);
+}
+main.article-page .comments h5 {
+  display: inline-block;
+  margin-right: 1rem;
+}
+main.article-page .comments p.date {
+  font-size: 12px;
+  display: inline-block;
+}
+main.article-page .comments .comment {
+  border-bottom: 1px dashed var(--col-dividers-borders);
+  padding-bottom: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+main.article-page .comments .comment:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+  margin-bottom: 0;
 }
 
   

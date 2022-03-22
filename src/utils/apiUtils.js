@@ -1,14 +1,14 @@
 // 'Utility' function used to interact with API endpoints
 
-// use axios to handle http requests
+// Use axios to handle http requests
 import axios from "axios"; 
 
-// Specify base URL
+// Set base URL
 const newsApi = axios.create({
     baseURL: "https://ncnewsbackend.herokuapp.com/api",
 });
 
-// GET requests
+// Articles & comments
 export const getArticles = (sort_by) => {
     return newsApi
         .get("/articles", {
@@ -19,11 +19,19 @@ export const getArticles = (sort_by) => {
         });
 };
 
-export const getSingleArticleById = (article_id) => {
+export const getArticleById = (article_id) => {
     return newsApi
         .get(`/articles/${article_id}`)
         .then(({ data }) => {
             return data.article;  // returns single article
+        });
+};
+
+export const getArticleComments = (article_id) => {
+    return newsApi
+        .get(`/articles/${article_id}/comments`)
+        .then(({ data }) => {
+            return data.comments;  // returns comments for the article
         });
 };
 
