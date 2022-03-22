@@ -83,8 +83,8 @@ header {
 header nav {
   display: grid;
   grid-template-columns: 1fr auto auto auto;
-  grid-gap: 8%;
-  max-width: 1260px;
+  grid-gap: 4%;
+  max-width: 1240px;
   margin-right: auto;
   margin-left: auto; 
   align-items: center; 
@@ -100,6 +100,9 @@ header nav h3#logo span {
 }
 header nav h3#logo small {
   display:none;
+}
+header nav h3#logo a {
+  text-decoration: none;
 }
 header nav a {
   font-weight: 700;
@@ -156,8 +159,8 @@ header nav p.user i {
 
 /* layout & main components */
 main {
-  max-width: 1260px;
-  margin: 0 auto 0 auto; 
+  max-width: 1240px;
+  margin: 0 auto 4rem auto; 
   padding: 0 2%;
 }
 
@@ -333,10 +336,10 @@ button:hover {
 
   header nav h3#logo small {
     color: var(--col-bg);
-    font-size: 0.75rem;
+    font-size: 0.75rem; /* 12px default */
     letter-spacing: 0;
     font-weight: 700;
-    margin-left: 1rem;
+    margin-left: 10px;
     display: inline;
   }
   .sub-nav p {
@@ -362,11 +365,15 @@ button:hover {
 
 }
 
-/* extra large devices, 1280px + */
-@media only screen and (min-width: 1280px) {
+/* extra large devices, 1240px + */
+@media only screen and (min-width: 1240px) {
 
   main {
     padding: 0;
+  }
+  main.article-page article {
+    margin-top: 92px;
+    margin-left: 92px;
   }
   main.articles-page .articles-wrapper {
     /* grid-template-columns: 1fr 1fr 1fr; */
