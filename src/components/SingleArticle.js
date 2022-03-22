@@ -37,6 +37,7 @@ const SingleArticle = () => {
     // Conditional loading
     if (isLoading) return <p className="loading-message"><i className="fa-solid fa-spinner"></i>Loading</p>;
 
+    // Main content
     return (
       <main className = "article-page">
 
@@ -62,7 +63,6 @@ const SingleArticle = () => {
             <section id="comments">
               <h3>Comments section to go here</h3>
             </section>
-
 
         </article>
       </main>
