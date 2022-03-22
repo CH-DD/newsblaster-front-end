@@ -40,7 +40,7 @@ const Articles = () => {
       <section className="sub-nav">
         <p>
           <button       
-            className={activeMenuItem == 'latest' ? 'active nav-link' : 'nav-link'}  
+            className={activeMenuItem === 'latest' ? 'active nav-link' : 'nav-link'}  
             onClick = {() => {
                 setSortBy("created_at");
                 setActiveMenuItem('latest');
@@ -49,21 +49,21 @@ const Articles = () => {
           </button>
 
           <button           
-            className={activeMenuItem == 'most-commented' ? 'active nav-link' : 'nav-link'}
+            className={activeMenuItem === 'most-comments' ? 'active nav-link' : 'nav-link'}
             onClick = {() => {
                 setSortBy("comment_count");
-                setActiveMenuItem("most-commented");
+                setActiveMenuItem("most-comments");
           }}>
-            Most Commented
+            Most Comments
           </button>
 
           <button 
-            className={activeMenuItem == 'popular' ? 'active nav-link' : 'nav-link'}
+            className={activeMenuItem === 'popular' ? 'active nav-link' : 'nav-link'}
             onClick = {() => {
                 setSortBy("votes");
                 setActiveMenuItem("popular");
           }}>
-            Most Liked
+            Popular
           </button>
         </p>
       </section>

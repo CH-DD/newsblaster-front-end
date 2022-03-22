@@ -261,8 +261,8 @@ main.article-page article h2 {
 main.article-page article .post-meta.after-heading {
   display: grid;
   grid-template-columns: auto auto;
-  border-bottom: 1px dashed var(--col-dividers-borders);
-  margin-bottom: 1rem;
+  border-top: 1px dashed var(--col-dividers-borders);
+  padding-top: .75rem ;
 }
 main.article-page article .post-meta.after-heading .author-topic-and-date {
   border-bottom: none;
@@ -279,7 +279,7 @@ main.article-page .comments {
   padding-top: 0.75rem;
 }
 main.article-page .comments h3 {
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 }
 main.article-page .comments h3 i {
   margin-right: 6px; 
@@ -288,8 +288,28 @@ main.article-page .comments h3 .count {
   font-weight: 400;
   color: var(--col-text-dk-grey);
 }
+main.article-page .comments a.leave-comment {
+  display: block;
+  font-size: 0.875rem; /* 14px default */
+  font-weight: bold;
+  margin-bottom: 2rem;
+}
+main.article-page .comments a.leave-comment i {
+  margin-left: 10px;
+  color: #fff;
+  background: var(--col-brand-primary);
+  width: 40px;
+  height: 40px;
+  display: inline-grid;
+  justify-content: center;
+  align-content: center;
+  border-radius: 50%;
+}
+main.article-page .comments a.leave-comment:hover {
+  text-decoration: none;
+}
 main.article-page .comments p {
-  font-size: 0.875rem;
+  font-size: 0.875rem; /* 14px default */
   color: var(--col-text-dk-grey);
 }
 main.article-page .comments h5 {
@@ -425,8 +445,20 @@ button:hover {
   main.articles-page article:nth-child(1) h2 {
     font-size: 2.75rem;
   }
-    h1.articles-heading {
+  h1.articles-heading {
     font-size: 3rem;
+  }
+
+  main.article-page .comments h3 {
+    margin-bottom: 2rem;
+  }
+  main.article-page .comments h3, 
+  main.article-page .comments a.leave-comment {
+    display: inline-block;
+  }
+  main.article-page .comments a.leave-comment {
+    margin-left: 1rem;
+    float: right;
   }
 
 }

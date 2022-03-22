@@ -78,6 +78,7 @@ const SingleArticle = () => {
                 <i className="fa-regular fa-comment" aria-label="Comments" title="Comments" ></i> Comments 
                 <span className="count"> ({currentArticle.comment_count})</span> 
               </h3>
+              <a className="leave-comment" href="#leave-comment">Leave a Comment<i class="fa-solid fa-pen-to-square"></i></a>
               
 
               { // go through all comments in the array
@@ -93,6 +94,10 @@ const SingleArticle = () => {
                 })
                 
               }
+            </section>
+
+            <section className="leave-comment" id="leave-comment">
+              <h4>Comments form to go here</h4>
             </section>
 
         </article>
