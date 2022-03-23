@@ -44,7 +44,7 @@ export const getTopics = () => {
 };
 
 // Users
-export const getUser = (username) => {
+export const getUserData = (username) => {
     return newsApi
         .get(`/users/${username}`)
         .then(({ data }) => {

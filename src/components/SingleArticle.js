@@ -39,6 +39,19 @@ const SingleArticle = () => {
       });
     }, [article_id]);
 
+   
+    /////////////////////////////////////////////// TEMP
+    // useEffect: get user data from API
+    // let [userData, setUserData] = useState({});
+    // let username = "happyamy2016";   // test value - returns object successfully
+
+    // useEffect(() => {
+    //   getUserData(username).then((fetchedData) => {  
+    //     setUserData(fetchedData);
+    //   });
+    // }, [username]);
+    ///////////////////////////////////////////////
+
     // Set page title - allow for data fetching delay
     if (isLoading) {
       pageTitle("Loading...");
@@ -59,6 +72,8 @@ const SingleArticle = () => {
         return "comment by-author";  
       }
     }
+
+
     // Main content
     return (
       <main className = "article-page">
@@ -87,18 +102,19 @@ const SingleArticle = () => {
             {/* Comments section */}
 
             <section className="comments" id="comments">
-
+            
               <h3>
                 <i className="fa-regular fa-comment" aria-label="Comments" title="Comments" ></i> Comments 
                 <span className="count"> ({currentArticle.comment_count})</span> 
               </h3>
               <a className="leave-comment" href="#leave-comment">Leave a Comment<i className="fa-solid fa-pen-to-square"></i></a>
               
-
+              
               { // go through all comments in the array
-              Comments.map((comment) => {
-
-                  return (
+              Comments.map((comment) => {       
+                
+                 
+                return (
                     <div className={commentClassBasedOnAuthor(comment.author)}
                      key={comment.comment_id}>
 

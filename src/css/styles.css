@@ -347,7 +347,6 @@ main.article-page .comments .comment.by-author h5.comment-author {
 main.article-page .comments .comment.by-author h5.comment-author::after {
   content: " (author)";
   font-weight: 400;
-
 }
   
 footer {
