@@ -308,22 +308,32 @@ main.article-page .comments a.leave-comment i {
 main.article-page .comments a.leave-comment:hover {
   text-decoration: none;
 }
+
 main.article-page .comments p {
   font-size: 0.875rem; /* 14px default */
   color: var(--col-text-dk-grey);
 }
-main.article-page .comments h5 {
-  display: inline-block;
-  margin-right: 1rem;
+main.article-page .comments .meta {
+  display: grid; 
+  grid-template-columns: 44px auto;
+  align-items: center;
+  gap: .75rem;
+  margin-bottom: .75rem;
 }
-main.article-page .comments p.date {
-  font-size: 12px;
-  display: inline-block;
+main.article-page .comments .meta img.avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+}
+
+main.article-page .comments .meta p.date {
+  font-size: 0.75rem; /* 12px default */
+  margin-bottom: 0;;
 }
 main.article-page .comments .comment {
   border-bottom: 1px dashed var(--col-dividers-borders);
-  padding-bottom: 0.75rem;
   margin-bottom: 0.75rem;
+  padding-bottom: 0.75rem;
 }
 main.article-page .comments .comment:last-child {
   border-bottom: none;
@@ -331,6 +341,14 @@ main.article-page .comments .comment:last-child {
   margin-bottom: 0;
 }
 
+main.article-page .comments .comment.by-author h5.comment-author {
+  color: var(--col-brand-primary);
+}
+main.article-page .comments .comment.by-author h5.comment-author::after {
+  content: " (author)";
+  font-weight: 400;
+
+}
   
 footer {
   width: 100%;

@@ -7,6 +7,9 @@ import { getArticleById, getArticleComments } from "../utils/apiUtils.js"; // da
 import { formatDate, formatDateAndTime } from "../utils/formatDate"; 
 import { pageTitle} from "../utils/pageTitle"; 
 
+// Images
+import defaultAvatar from '../images/user-avatar-placeholder.png'; 
+
 
 const SingleArticle = () => {  
 
@@ -36,8 +39,8 @@ const SingleArticle = () => {
       });
     }, [article_id]);
 
-     // Set page title - allow for data fetching delay
-     if (isLoading) {
+    // Set page title - allow for data fetching delay
+    if (isLoading) {
       pageTitle("Loading...");
     } else {
       pageTitle(currentArticle.title + " | Newsblaster");
@@ -46,6 +49,16 @@ const SingleArticle = () => {
     // Conditional loading
     if (isLoading) return <p className="loading-message"><i className="fa-solid fa-spinner"></i>Loading</p>;
 
+    // Comments class name function. If author of comment is same as main article author, append 'by-author' to class name  */
+    function commentClassBasedOnAuthor(commentAuthor) {
+      const articleAuthor = currentArticle.author;
+
+      if(commentAuthor !== articleAuthor) {
+        return "comment"; // default class 
+      } else {
+        return "comment by-author";  
+      }
+    }
     // Main content
     return (
       <main className = "article-page">
@@ -59,7 +72,7 @@ const SingleArticle = () => {
 
             <section className="post-meta after-heading">
                 
-                <p className="author-topic-and-date">by {currentArticle.author}</p>
+                <p className="author-topic-and-date">by <strong>{currentArticle.author}</strong></p>
 
                 <p className="comments-and-likes-count">
                   <a className="comments-link" title="View Comments" href="#comments">
@@ -70,24 +83,35 @@ const SingleArticle = () => {
             </section>
             <p> { currentArticle.body }</p>  
 
-            
-            {/* Comments */}
+
+            {/* Comments section */}
 
             <section className="comments" id="comments">
+
               <h3>
                 <i className="fa-regular fa-comment" aria-label="Comments" title="Comments" ></i> Comments 
                 <span className="count"> ({currentArticle.comment_count})</span> 
               </h3>
-              <a className="leave-comment" href="#leave-comment">Leave a Comment<i class="fa-solid fa-pen-to-square"></i></a>
+              <a className="leave-comment" href="#leave-comment">Leave a Comment<i className="fa-solid fa-pen-to-square"></i></a>
               
 
               { // go through all comments in the array
               Comments.map((comment) => {
 
                   return (
-                    <div className="comment" key={comment.comment_id}>
-                      <h5 className="author">{comment.author}</h5>
-                      <p className="date">{formatDateAndTime(comment.created_at)}</p>
+                    <div className={commentClassBasedOnAuthor(comment.author)}
+                     key={comment.comment_id}>
+
+                      <div className="meta">
+                        <img className="avatar" src={defaultAvatar} alt="User avatar" />
+
+                        <div className="author-and-date">
+                          
+                          <h5 className="comment-author">{comment.author}</h5>
+                          <p className="date">{formatDateAndTime(comment.created_at)}</p>
+                        </div>
+                      </div>
+                      
                       <p className="body">{comment.body}</p>
                     </div>
                   ) 

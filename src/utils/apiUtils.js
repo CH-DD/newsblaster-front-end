@@ -8,7 +8,7 @@ const newsApi = axios.create({
     baseURL: "https://ncnewsbackend.herokuapp.com/api",
 });
 
-// Articles & comments
+// Articles & Comments
 export const getArticles = (sort_by) => {
     return newsApi
         .get("/articles", {
@@ -40,6 +40,15 @@ export const getTopics = () => {
         .get("/topics")
         .then(({ data }) => {
             return data.topics;  // returns array of 'topics' objects
+        });
+};
+
+// Users
+export const getUser = (username) => {
+    return newsApi
+        .get(`/users/${username}`)
+        .then(({ data }) => {
+            return data.user;  // returns single user data
         });
 };
  
