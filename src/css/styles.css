@@ -253,10 +253,7 @@ main.article-page article  {
 main article .post-meta.before-heading .author-topic-and-date {
   border-bottom: none;
   padding-bottom: 0;
-  margin-bottom: 0;
-}
-main.article-page article h2 {
-  margin-bottom: 0;
+  margin-bottom: 0.75rem;
 }
 main.article-page article .post-meta.after-heading {
   display: grid;
@@ -266,7 +263,6 @@ main.article-page article .post-meta.after-heading {
 }
 main.article-page article .post-meta.after-heading .author-topic-and-date {
   border-bottom: none;
-  margin-bottom: 0;
 } 
 main.article-page article .comments-and-likes-count {
   justify-self: end;
@@ -362,11 +358,11 @@ input, textarea, button {
   padding: 0.75rem 1rem;
   font-size: 1.25rem;
   border: none;
-  /* border-style: solid;
-  border-width: 0.0625rem; 1px default  */
-  /* border-color: var(--col-dividers-borders); */
-  /* margin-bottom: 1rem; */
   height: 3.75rem;
+}
+input, textarea {
+  border: 1px solid var(--col-dividers-borders); 
+  margin-bottom: 1rem;
 }
 label {
   margin-bottom: 0.3125rem; /* 5px default */

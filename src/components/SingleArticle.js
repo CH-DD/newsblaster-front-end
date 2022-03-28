@@ -40,18 +40,6 @@ const SingleArticle = () => {
     }, [article_id]);
 
    
-    /////////////////////////////////////////////// TEMP
-    // useEffect: get user data from API
-    // let [userData, setUserData] = useState({});
-    // let username = "happyamy2016";   // test value - returns object successfully
-
-    // useEffect(() => {
-    //   getUserData(username).then((fetchedData) => {  
-    //     setUserData(fetchedData);
-    //   });
-    // }, [username]);
-    ///////////////////////////////////////////////
-
     // Set page title - allow for data fetching delay
     if (isLoading) {
       pageTitle("Loading...");
@@ -79,6 +67,9 @@ const SingleArticle = () => {
       <main className = "article-page">
 
         <article>
+
+          <section className="main-content">
+
             <section className="post-meta before-heading">
                 <p className="author-topic-and-date"><Link className="topic" to={`/topics/${currentArticle.topic}`}>{currentArticle.topic}</Link> · {formatDate(currentArticle.created_at)}</p>
             </section>
@@ -86,7 +77,7 @@ const SingleArticle = () => {
             <h2> { currentArticle.title }</h2>  
 
             <section className="post-meta after-heading">
-                
+
                 <p className="author-topic-and-date">by <strong>{currentArticle.author}</strong></p>
 
                 <p className="comments-and-likes-count">
@@ -96,49 +87,67 @@ const SingleArticle = () => {
                   <i className="fa-regular fa-thumbs-up" aria-label="Likes" title="Likes"></i> {currentArticle.votes} </p>
 
             </section>
-            <p> { currentArticle.body }</p>  
+
+            <p> { currentArticle.body }</p> 
+
+          </section>
 
 
-            {/* Comments section */}
-
-            <section className="comments" id="comments">
+          {/********************** Comments section **********************/}
+          <section className="comments" id="comments">
+            <h3>
+              <i className="fa-regular fa-comment" aria-label="Comments" title="Comments" ></i> Comments 
+              <span className="count"> ({currentArticle.comment_count})</span> 
+            </h3>
+            <a className="leave-comment" href="#leave-comment">Leave a Comment<i className="fa-solid fa-pen-to-square"></i></a>
             
-              <h3>
-                <i className="fa-regular fa-comment" aria-label="Comments" title="Comments" ></i> Comments 
-                <span className="count"> ({currentArticle.comment_count})</span> 
-              </h3>
-              <a className="leave-comment" href="#leave-comment">Leave a Comment<i className="fa-solid fa-pen-to-square"></i></a>
-              
-              
-              { // go through all comments in the array
-              Comments.map((comment) => {       
+            { // go through all comments in the array
+            Comments.map((comment) => {       
                 
-                 
-                return (
-                    <div className={commentClassBasedOnAuthor(comment.author)}
-                     key={comment.comment_id}>
+              return (
+                  <div className={commentClassBasedOnAuthor(comment.author)}
+                    key={comment.comment_id}>
 
-                      <div className="meta">
-                        <img className="avatar" src={defaultAvatar} alt="User avatar" />
+                    <div className="meta">
+                      {/* AVATAR - would like to replace default img with user.avatar_url from /api/users/:username (fetch functionality not set up yet)  */}
+                      <img className="avatar" src={defaultAvatar} alt="User avatar" />
 
-                        <div className="author-and-date">
-                          
-                          <h5 className="comment-author">{comment.author}</h5>
-                          <p className="date">{formatDateAndTime(comment.created_at)}</p>
-                        </div>
+                      <div className="author-and-date">
+                        <h5 className="comment-author">{comment.author}</h5>
+                        <p className="date">{formatDateAndTime(comment.created_at)}</p>
                       </div>
-                      
-                      <p className="body">{comment.body}</p>
                     </div>
-                  ) 
-                })
-                
-              }
-            </section>
+                    
+                    <p className="body">{comment.body}</p>
+                  </div>
+                ) 
+              })
+            }
+          </section>
 
-            <section className="leave-comment" id="leave-comment">
-              <h4>Comments form to go here</h4>
-            </section>
+
+          {/********************** LeaveComment section **********************/}
+          <section className="leave-comment" id="leave-comment">
+            <h3>Leave a comment</h3>
+
+            <form onSubmit="">
+
+                  <textarea 
+                      placeholder="Enter your comment..."
+                      required
+                      // update state value as text is input
+                  ></textarea>
+
+                  {/* show different buttons depending on submission status */}
+                  <button> 
+                      Publish
+                  </button> 
+
+              </form>
+
+
+
+          </section>
 
         </article>
       </main>
