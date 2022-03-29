@@ -1,10 +1,28 @@
-// Individual comments
+// React stuff
+import { useEffect, useState } from "react"; 
 
 // Custom utils & components
 import defaultAvatar from '../../images/user-avatar-placeholder.png'; 
+import { getUserData } from "../../utils/apiUtils";
 
-// Main content
+
 const SingleComment = ({ comment, currentArticle, formatDateAndTime }) => {
+
+    // Value: current comment author's username (used in useEffect)
+    const userName = comment.author;
+
+    // State: to store comment author's data (used in useEffect)
+    const [user, setUser] = useState([]);
+
+    // useEffect: get comment author's data from API
+    useEffect(() => {
+        getUserData(userName).then((fetchedData) => {  
+        setUser(fetchedData);
+        });
+    }, [userName]); 
+
+    // Values: comment author's avatar URL, full name
+    const avatarUrl = user.avatar_url;
 
     // Comments class name function. If author of comment is same as main article author, append 'by-author' to class name  */
     function commentClassBasedOnAuthor(commentAuthor) {
@@ -16,6 +34,7 @@ const SingleComment = ({ comment, currentArticle, formatDateAndTime }) => {
             return "comment by-author";  
         }
     }
+    
 
     return (  
         <div 
@@ -24,11 +43,20 @@ const SingleComment = ({ comment, currentArticle, formatDateAndTime }) => {
         >
 
             <div className="meta">
-                {/* AVATAR - would like to replace default img with user.avatar_url from /api/users/:username (fetch functionality not set up yet)  */}
-                <img className="avatar" src={defaultAvatar} alt="User avatar" />
 
+                {/* User Avatar: use author's image URL if  image is returned successfully. Otherwise return a defaultAvatar placeholder (using JS 'onError')  */}
+                <img 
+                    className="avatar"
+                    alt={userName + "'s avatar" }  
+                    src={ avatarUrl }
+                    onError={({ currentTarget }) => {
+                        currentTarget.onError = null; // prevents looping
+                        currentTarget.src = defaultAvatar ;
+                    }}
+                />
+                
                 <div className="author-and-date">
-                <h5 className="comment-author">{comment.author}</h5>
+                <h5 className="comment-author">{ userName }</h5>
                 <p className="date">{formatDateAndTime(comment.created_at)}</p>
                 </div>
             </div>

@@ -1,8 +1,8 @@
 // React stuff
 import { useEffect, useState } from "react";
-import { getArticles } from "../../utils/apiUtils";
 
 // Custom utils & components
+import { getArticles } from "../../utils/apiUtils";
 import { ArticlePreview } from "./ArticlePreview";
 import { pageTitle} from "../../utils/pageTitle"; 
 
