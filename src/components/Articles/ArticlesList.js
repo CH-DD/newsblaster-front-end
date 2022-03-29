@@ -1,12 +1,12 @@
 // React stuff
 import { useEffect, useState } from "react";
-import { getArticles } from "../utils/apiUtils.js";
+import { getArticles } from "../../utils/apiUtils";
 
 // Custom utils & components
-import { ArticlePreview } from "../components/ArticlePreview.js";
-import { pageTitle} from "../utils/pageTitle"; 
+import { ArticlePreview } from "./ArticlePreview";
+import { pageTitle} from "../../utils/pageTitle"; 
 
-const Articles = () => {  
+const ArticlesList = () => {  
 
   // Set page title
   pageTitle( "NewsBlaster...blasting words in your face 24/7");
@@ -92,4 +92,4 @@ const Articles = () => {
 };
 
 // export component/s
-export { Articles };
+export { ArticlesList };

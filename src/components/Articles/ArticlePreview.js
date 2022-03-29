@@ -2,7 +2,7 @@
 import { Link } from 'react-router-dom';
 
 // Custom utils & components
-import { formatDate } from "../utils/formatDate"; 
+import { formatDate } from "../../utils/formatDate"; 
 
 const ArticlePreview = (props) => {  
 

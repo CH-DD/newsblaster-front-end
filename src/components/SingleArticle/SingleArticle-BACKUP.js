@@ -3,12 +3,12 @@ import { useEffect, useState } from "react";
 import { useParams, Link } from 'react-router-dom'; 
 
 // Custom utils & components
-import { getArticleById, getArticleComments } from "../utils/apiUtils.js"; // data fetching
-import { formatDate, formatDateAndTime } from "../utils/formatDate"; 
-import { pageTitle} from "../utils/pageTitle"; 
+import { getArticleById, getArticleComments } from "../../utils/apiUtils"; // data fetching
+import { formatDate, formatDateAndTime } from "../../utils/formatDate"; 
+import { pageTitle} from "../../utils/pageTitle"; 
 
 // Images
-import defaultAvatar from '../images/user-avatar-placeholder.png'; 
+import defaultAvatar from '../../images/user-avatar-placeholder.png'; 
 
 
 const SingleArticle = () => {  
