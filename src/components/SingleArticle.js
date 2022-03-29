@@ -94,7 +94,10 @@ const SingleArticle = () => {
 
 
           {/********************** Comments section **********************/}
-          <section className="comments" id="comments">
+          
+          <section className="comments">
+            <a id="comments" className="anchor"></a>
+
             <h3>
               <i className="fa-regular fa-comment" aria-label="Comments" title="Comments" ></i> Comments 
               <span className="count"> ({currentArticle.comment_count})</span> 
@@ -127,7 +130,9 @@ const SingleArticle = () => {
 
 
           {/********************** LeaveComment section **********************/}
-          <section className="leave-comment" id="leave-comment">
+          <section className="leave-comment">
+            <a id="leave-comment" className="anchor"></a>
+
             <h3>Leave a comment</h3>
 
             <form onSubmit="">
@@ -137,15 +142,12 @@ const SingleArticle = () => {
                       required
                       // update state value as text is input
                   ></textarea>
-
-                  {/* show different buttons depending on submission status */}
-                  <button> 
-                      Publish
+                  <p className="comment-guidelines">Please keep all discussion polite and respectful.</p>
+                  <button className="cta"> 
+                    <i className="fa-solid fa-check"></i> Post Comment
                   </button> 
 
               </form>
-
-
 
           </section>
 
