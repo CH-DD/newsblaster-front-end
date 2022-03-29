@@ -7,6 +7,7 @@ import { getArticleById, getArticleComments } from "../../utils/apiUtils"; // da
 import { formatDate, formatDateAndTime } from "../../utils/formatDate"; 
 import { pageTitle} from "../../utils/pageTitle"; 
 import { Comments } from "./Comments";
+import { Likes } from "./Likes";
 
 
 const SingleArticle = () => {  
@@ -49,6 +50,7 @@ const SingleArticle = () => {
     if (isLoading) return <p className="loading-message"><i className="fa-solid fa-spinner"></i>Loading</p>;
 
     // Main content
+
     return (
       <main className = "article-page">
 
@@ -71,6 +73,11 @@ const SingleArticle = () => {
                     <i className="fa-regular fa-comment" aria-label="Comments" title="Comments" ></i> {currentArticle.comment_count}
                   </a>
                   <i className="fa-regular fa-thumbs-up" aria-label="Likes" title="Likes"></i> {currentArticle.votes} </p>
+
+                  <Likes 
+                    likesCount={ currentArticle.votes } 
+                    article_id = { article_id }
+                  />
 
             </section>
 

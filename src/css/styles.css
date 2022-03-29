@@ -310,24 +310,29 @@ main.article-page .comments a.leave-comment:hover {
 
 main.article-page .comments p {
   font-size: 0.875rem; /* 14px default */
-  color: var(--col-text-dk-grey);
+  /* color: var(--col-text-dk-grey); */
 }
 main.article-page .comments .meta {
   display: grid; 
-  grid-template-columns: 44px auto;
+  grid-template-columns: 50px auto;
   align-items: center;
   gap: .75rem;
   margin-bottom: .75rem;
 }
 main.article-page .comments .meta img.avatar {
-  width: 44px;
-  height: 44px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
+  border: 1px solid #e7e7e7;
 }
-
+main.article-page .comments .meta h5.comment-author {
+   color: var(--col-brand-primary);
+   font-weight: 400;
+}
 main.article-page .comments .meta p.date {
   font-size: 0.75rem; /* 12px default */
   margin-bottom: 0;;
+  color: var(--col-text-dk-grey);
 }
 main.article-page .comments .comment {
   border-bottom: 1px dashed var(--col-dividers-borders);

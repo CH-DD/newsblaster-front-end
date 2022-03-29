@@ -35,6 +35,15 @@ export const getArticleComments = (article_id) => {
         });
 };
 
+export const patchArticleById = (article_id) => {
+    return newsApi
+        .patch(`/articles/${article_id}`, { "inc_votes": 1 }) // adds a 'like'
+        .then(({ data }) => {
+            console.log(data);
+            return data.article; // returns 'patched' single article
+        });
+};
+
 export const getTopics = () => {
     return newsApi
         .get("/topics")
