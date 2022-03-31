@@ -22,30 +22,13 @@ const Comments = ({ article_id, currentArticle, comments, formatDateAndTime }) =
             comments.map((comment) => {       
                 
               return (
-
                 <SingleComment
                   comment={ comment }
                   currentArticle={ currentArticle } 
                   formatDateAndTime = { formatDateAndTime }
                 />
-
-                  // <div className={commentClassBasedOnAuthor(comment.author)}
-                  //   key={comment.comment_id}>
-
-                  //   <div className="meta">
-                  //     {/* AVATAR - would like to replace default img with user.avatar_url from /api/users/:username (fetch functionality not set up yet)  */}
-                  //     <img className="avatar" src={defaultAvatar} alt="User avatar" />
-
-                  //     <div className="author-and-date">
-                  //       <h5 className="comment-author">{comment.author}</h5>
-                  //       <p className="date">{formatDateAndTime(comment.created_at)}</p>
-                  //     </div>
-                  //   </div>
-                    
-                  //   <p className="body">{comment.body}</p>
-                  // </div>
-                ) 
-              })
+              ) 
+            })
             }
           </section>
 
@@ -56,7 +39,6 @@ const Comments = ({ article_id, currentArticle, comments, formatDateAndTime }) =
             <h3>Leave a comment</h3>
 
             <form onSubmit="">
-
                   <textarea 
                       placeholder="Enter your comment..."
                       required
@@ -66,7 +48,6 @@ const Comments = ({ article_id, currentArticle, comments, formatDateAndTime }) =
                   <button className="cta"> 
                     <i className="fa-solid fa-check"></i> Post Comment
                   </button> 
-
               </form>
 
           </section>

@@ -1,35 +1,46 @@
-// import react stuff
-import { BrowserRouter, Routes, Route } from 'react-router-dom';  // handles routes, endpoints
+// React stuff
+import { BrowserRouter, Routes, Route } from "react-router-dom";  // handles routes, endpoints
+import { useState } from "react";
 
-// import components
+// Custom utils & components
 import { Header } from "./components/Header";
 import { ArticlesList } from "./components/Articles/ArticlesList";
 import { Topics } from "./components/Topics";
 import { SingleArticle } from "./components/SingleArticle/SingleArticle";
+import { UserPage } from "./components/UserPage";
 import { ErrorPage} from "./components/ErrorPage";
+import { CurrentUserContext } from "./contexts/CurrentUserContext"; // for current logged in user
 
-// import styles 
+// Styles
 import "./css/styles.css";
 import "./css/styles-basic-reset.css";
 
-// main app
+// Main app
 function App() {
+
+  // State: logged in user (context)
+  const [currentUser, setCurrentUser] = useState("happyamy2016");
+
   return (
-    <BrowserRouter>
-      <>
-        <Header />
+    // make current user values available globally  
+    <CurrentUserContext.Provider value={{ currentUser, setCurrentUser }} > 
+      <BrowserRouter>
+        <>
+            <Header />
+            
+            <Routes>
+              <Route path="/" element={<ArticlesList />} />
+              <Route path="/articles" element={<ArticlesList />} />
+              <Route path="/topics" element={<Topics />} />
+              <Route path="/articles/:article_id" element={<SingleArticle />} />
+              <Route path="/user" element={<UserPage />} />
 
-        <Routes>
-          <Route path="/" element={<ArticlesList />} />
-          <Route path="/articles" element={<ArticlesList />} />
-          <Route path="/topics" element={<Topics />} />
-          <Route path="/articles/:article_id" element={<SingleArticle />} />
+              <Route path="*" element={<ErrorPage />} />
+            </Routes>
+        </>
+      </BrowserRouter>
 
-          <Route path="*" element={<ErrorPage />} />
-        </Routes>
-
-      </>
-    </BrowserRouter>
+    </CurrentUserContext.Provider>
   );
 }
 

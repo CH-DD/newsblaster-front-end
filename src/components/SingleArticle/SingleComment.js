@@ -21,7 +21,7 @@ const SingleComment = ({ comment, currentArticle, formatDateAndTime }) => {
         });
     }, [userName]); 
 
-    // Values: comment author's avatar URL, full name
+    // Values: comment author's avatar URL
     const avatarUrl = user.avatar_url;
 
     // Comments class name function. If author of comment is same as main article author, append 'by-author' to class name  */

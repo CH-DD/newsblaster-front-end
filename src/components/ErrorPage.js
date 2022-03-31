@@ -1,7 +1,7 @@
 // React stuff
 
 // Custom utils & components
-import { pageTitle} from "../utils/pageTitle"; 
+import { pageTitle } from "../utils/pageTitle"; 
 
 // Set page title
 pageTitle( "Error | Newsblaster");
