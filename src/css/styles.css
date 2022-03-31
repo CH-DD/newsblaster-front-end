@@ -238,6 +238,7 @@ main article .post-meta i {
 main article .comments-and-likes-count .fa-thumbs-up {
   margin-left: 1.75rem;
 }
+
   
 main.article-page  {
   display: grid;
@@ -250,6 +251,20 @@ main.article-page article  {
   grid-gap: 1rem;
   grid-template-columns: auto;
   margin-top: 72px;
+}
+main.article-page article .comments-and-likes-count #likes-button {
+  padding: 0;
+  height: auto;
+  background: none;
+  margin-left: 1.75rem;
+  font-size: 1rem;
+}
+main.article-page article .comments-and-likes-count #likes-button .fa-thumbs-up {
+  margin-left: 0; /* override default */
+}
+main.article-page article .comments-and-likes-count #likes-button:hover, 
+main.article-page article .comments-and-likes-count #likes-button.liked {
+  color: var(--col-brand-primary);
 }
 
 

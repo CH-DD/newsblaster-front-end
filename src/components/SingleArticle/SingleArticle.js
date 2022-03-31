@@ -50,7 +50,6 @@ const SingleArticle = () => {
     if (isLoading) return <p className="loading-message"><i className="fa-solid fa-spinner"></i>Loading</p>;
 
     // Main content
-
     return (
       <main className = "article-page">
 
@@ -72,12 +71,12 @@ const SingleArticle = () => {
                   <a className="comments-link" title="View Comments" href="#comments">
                     <i className="fa-regular fa-comment" aria-label="Comments" title="Comments" ></i> {currentArticle.comment_count}
                   </a>
-                  <i className="fa-regular fa-thumbs-up" aria-label="Likes" title="Likes"></i> {currentArticle.votes} </p>
 
                   <Likes 
-                    likesCount={ currentArticle.votes } 
+                    likes={ currentArticle.votes } 
                     article_id = { article_id }
                   />
+                </p>
 
             </section>
 

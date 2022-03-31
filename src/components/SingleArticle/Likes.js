@@ -1,33 +1,52 @@
-import { patchArticleById } from "../../utils/apiUtils";
+// React stuff
+import { useState } from "react"; 
 
-const Likes = ({ likesCount, article_id }) => {
+// Custom utils & components
+import { patchArticleToAddLike, patchArticleToRemoveLike } from "../../utils/apiUtils";
 
-    /* 
-    - make patch request to DB - done
-    - update state to add 1 - done
-    - limit to max 1 like
 
-    - refer to 'optimistic rendering' vid from  Wk9_Day4_Thu 3 Feb- Upto 46:00
-    */
-    const addLike = () => {
-        patchArticleById(article_id)
-            .then(updatedArticle => {
-                // Update UI to have 1 more like than on page load. 
+const Likes = ({ likes, article_id }) => {
 
-            })
+    // State: count 'likes' value since initial page render
+    const [ likesChange, setLikesChange ] = useState(0);
+
+    // Function: Add or remove likes. Limit to one like per page render.   
+    const addOrRemoveLike = () => {
+
+        // Add a like - if not liked already
+        if (likesChange === 0) {
+            setLikesChange(likesChange + 1); // optimistic rendering (temp. value)
+            document.querySelector("#likes-button").classList.add("liked"); // styling class
+            document.querySelector("#likes-button").title = "Unlike this article"; // change button title
+
+            patchArticleToAddLike(article_id)    // update db 
+            .catch((err) => {
+                setLikesChange(likesChange - 1); // reset likes if error occurs
+            });
+
+        // Remove the like if already liked
+        } else if (likesChange !== 0) {  
+            setLikesChange(likesChange - 1); 
+            document.querySelector("#likes-button").classList.remove("liked");
+            document.querySelector("#likes-button").title = "Like this article"; 
+
+            patchArticleToRemoveLike(article_id)   
+            .catch((err) => {
+                setLikesChange(likesChange + 1); // error handling
+            });
+        }
     };
-
-
 
     return (  
         <>
-            {/* likes button in progress */}
-            <button onClick={() => addLike()}>
-                <i className="fa-regular fa-thumbs-up" aria-label="Likes" title="Likes"></i>
+            <button 
+                title="Like this article" 
+                id="likes-button"
+                onClick={() => addOrRemoveLike()}
+            >
+                <i className="fa-regular fa-thumbs-up" aria-label="Likes"></i>  { likes + likesChange }
             </button>
-            <p>{ likesCount }</p>
         </>
-        
     );
 }
  

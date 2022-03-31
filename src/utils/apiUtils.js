@@ -8,56 +8,73 @@ const newsApi = axios.create({
     baseURL: "https://ncnewsbackend.herokuapp.com/api",
 });
 
+
 // Articles & Comments
-export const getArticles = (sort_by) => {
+
+    // return array of 'article' objects, sorted by a given parameter
+    export const getArticles = (sort_by) => {
     return newsApi
         .get("/articles", {
             params: { limit: 100, sort_by}
         })
         .then(({ data }) => {
-            return data.articles;  // returns array of 'article' objects
+            return data.articles;  
         });
-};
+    };
 
-export const getArticleById = (article_id) => {
+    // return single article
+    export const getArticleById = (article_id) => {
     return newsApi
         .get(`/articles/${article_id}`)
         .then(({ data }) => {
-            return data.article;  // returns single article
+            return data.article;  
         });
-};
+    };
 
-export const getArticleComments = (article_id) => {
+    // return single article's comments
+    export const getArticleComments = (article_id) => {
     return newsApi
         .get(`/articles/${article_id}/comments`)
         .then(({ data }) => {
-            return data.comments;  // returns comments for the article
+            return data.comments;  
         });
-};
+    };
 
-export const patchArticleById = (article_id) => {
+    // 'like' a single article & update 'votes'
+    export const patchArticleToAddLike = (article_id) => {
     return newsApi
-        .patch(`/articles/${article_id}`, { "inc_votes": 1 }) // adds a 'like'
+        .patch(`/articles/${article_id}`, { "inc_votes": 1 }) // add a 'like'
         .then(({ data }) => {
-            console.log(data);
-            return data.article; // returns 'patched' single article
+            return data.article; 
         });
-};
+    };
 
-export const getTopics = () => {
+    // 'unlike' a single article & update 'votes'
+    export const patchArticleToRemoveLike = (article_id) => {
+    return newsApi
+        .patch(`/articles/${article_id}`, { "inc_votes": -1 }) // remove a 'like'
+        .then(({ data }) => {
+            return data.article;
+        });
+    };
+
+    // return array of 'topics' objects
+    export const getTopics = () => {
     return newsApi
         .get("/topics")
         .then(({ data }) => {
-            return data.topics;  // returns array of 'topics' objects
+            return data.topics;  
         });
-};
+    };
 
 // Users
-export const getUserData = (username) => {
-    return newsApi
-        .get(`/users/${username}`)
-        .then(({ data }) => {
-            return data.user;  // returns single user data
-        });
-};
+
+    // return single user data
+    export const getUserData = (username) => {
+        return newsApi
+            .get(`/users/${username}`)
+            .then(({ data }) => {
+                return data.user;  
+            });
+    };
  
