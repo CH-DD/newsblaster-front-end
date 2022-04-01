@@ -19,7 +19,7 @@ import "./css/styles-basic-reset.css";
 function App() {
 
   // State: logged in user (context)
-  const [currentUser, setCurrentUser] = useState("happyamy2016");
+  const [currentUser, setCurrentUser] = useState("tickle122"); // default user
 
   return (
     // make current user values available globally  

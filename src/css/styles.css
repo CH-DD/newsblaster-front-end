@@ -175,6 +175,9 @@ main {
   margin: 0 auto 4rem auto; 
   padding: 0 2%;
 }
+main.text-page {
+  max-width: 780px;
+}
 
 p.loading-message {
   margin: 45vh auto 0 auto;
@@ -390,6 +393,43 @@ section.leave-comment p.comment-guidelines {
 section.leave-comment button i {
   margin-right: 6px;
 }
+
+/* user page */
+main.user-page {
+  margin-top: 112px;
+  text-align: center;
+}
+main.user-page button {
+  border: 1px solid var(--col-brand-secondary);
+  padding: 0.65rem 1.25rem;
+  border-radius: 25px;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.04rem;
+  margin: 0 2px 6px 2px;
+  display: inline-block;
+  background: none;
+}
+main.user-page button.current-user, 
+main.user-page button:hover {
+  background: var(--col-bg);
+  color: var(--col-brand-primary);
+  text-decoration: none;
+  opacity: 1;
+  border-color: var(--col-bg);
+}
+main.user-page h2 { 
+  margin-bottom: 1rem;
+}
+main.user-page .user-buttons { 
+  margin-bottom: 4rem;
+}
+main.user-page p.disclaimer {
+  font-size: 14px;
+}
+
+
+
 
 /* footer */
 footer {
