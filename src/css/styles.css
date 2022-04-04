@@ -202,7 +202,8 @@ main.articles-page .articles-wrapper {
   grid-template-columns: 1fr;
   margin: 0 auto 1em auto;
 }
-main article {
+main article, 
+.pullout {
   border-radius: 5px;
   background: var(--col-bg);
   padding: 5%;
@@ -404,7 +405,7 @@ main.user-page button {
   padding: 0.65rem 1.25rem;
   border-radius: 25px;
   font-size: 12px;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
   letter-spacing: 0.04rem;
   margin: 0 2px 6px 2px;
   display: inline-block;
@@ -426,6 +427,7 @@ main.user-page .user-buttons {
 }
 main.user-page p.disclaimer {
   font-size: 14px;
+  margin-bottom: 0;
 }
 
 

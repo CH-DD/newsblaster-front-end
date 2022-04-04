@@ -58,6 +58,16 @@ const newsApi = axios.create({
         });
     };
 
+    // post a comment on an article
+    export const postComment = (article_id, commentBody, commentAuthor) => {
+        return newsApi
+            .post(`/articles/${article_id}/comments`, { "body" : commentBody, "username": commentAuthor }) 
+            .then(({ data }) => {
+                return data.comment; 
+            });
+        };
+
+
     // return array of 'topics' objects
     export const getTopics = () => {
     return newsApi

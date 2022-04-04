@@ -6,6 +6,7 @@ import defaultAvatar from '../../images/user-avatar-placeholder.png';
 import { getUserData } from "../../utils/apiUtils";
 
 
+
 const SingleComment = ({ comment, currentArticle, formatDateAndTime }) => {
 
     // Value: current comment author's username (used in useEffect)
@@ -39,7 +40,6 @@ const SingleComment = ({ comment, currentArticle, formatDateAndTime }) => {
     return (  
         <div 
             className={commentClassBasedOnAuthor(comment.author)}
-            key={comment.comment_id}
         >
 
             <div className="meta">
