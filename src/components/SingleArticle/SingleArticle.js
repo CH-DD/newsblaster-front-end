@@ -1,6 +1,8 @@
 // React stuff
 import { useEffect, useState } from "react"; 
 import { useParams, Link } from 'react-router-dom'; 
+import { useContext } from 'react'; // to access current user context
+import { useNavigate } from "react-router-dom";
 
 // Custom utils & components
 import { getArticleById, getArticleComments } from "../../utils/apiUtils"; // data fetching
@@ -8,6 +10,8 @@ import { formatDate, formatDateAndTime } from "../../utils/formatDate";
 import { pageTitle} from "../../utils/pageTitle"; 
 import { Comments } from "./Comments";
 import { Likes } from "./Likes";
+import { postComment } from "../../utils/apiUtils";
+import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 
 
 const SingleArticle = () => {  
@@ -36,7 +40,7 @@ const SingleArticle = () => {
         setComments(fetchedData);
         setIsLoading(false);
       });
-    }, [article_id]);
+    }, [article_id, comments]); // reloads when article id or comments are updated
 
    
     // Set page title - allow for data fetching delay
@@ -46,6 +50,32 @@ const SingleArticle = () => {
       pageTitle(currentArticle.title + " | Newsblaster");
     }
    
+
+    // Leave comment functionality ////////////////////////
+
+    // useNavigate: access navigation history & redirect after form submission
+    const navigate = useNavigate();
+
+    // State: logged in user
+    const { currentUser, setCurrentUser } = useContext(CurrentUserContext);
+
+    // State: to store form input values
+    const [ commentBody, setCommentBody ] = useState("");             
+    const [ commentAuthor ] = useState(currentUser);  
+
+    // Handle form submission
+    const handleFormSubmit = (event) => {
+      event.preventDefault(); // prevent default page refresh when button is pressed
+      
+      postComment(article_id, commentBody, commentAuthor);  // submit the comment data
+     
+      event.target.reset();  // clear form input field
+
+      navigate(`/articles/${article_id}/#comments`);  // scroll to #comments section ** scroll not working
+    }
+
+
+
     // Conditional loading
     if (isLoading) return <p className="loading-message"><i className="fa-solid fa-spinner"></i>Loading</p>;
 
@@ -90,6 +120,10 @@ const SingleArticle = () => {
             currentArticle = { currentArticle } 
             comments={ comments }
             formatDateAndTime = { formatDateAndTime }
+            handleFormSubmit = { handleFormSubmit } 
+            commentBody = { commentBody } 
+            setCommentBody = { setCommentBody } 
+            commentAuthor  = { commentAuthor } 
           />
 
         </article>

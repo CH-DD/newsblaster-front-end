@@ -8,22 +8,14 @@ import SingleComment from './SingleComment';
 import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 
 // Main content
-const Comments = ({ article_id, currentArticle, comments, formatDateAndTime }) => {  
+const Comments = ({ article_id, currentArticle, comments, formatDateAndTime, handleFormSubmit, setCommentBody, commentAuthor }) => {  
 
   // State: logged in user
   const { currentUser, setCurrentUser } = useContext(CurrentUserContext);
 
-  // State: to store form input values
-  const [ commentBody, setCommentBody ] = useState("");             
-  const [ commentAuthor, setCommentAuthor ] = useState(currentUser);   
+ 
 
-  // Handle form submission
-  const handleFormSubmit = (event) => {
-    // prevent default action: page refresh when button is pressed
-    event.preventDefault();
 
-    postComment(article_id, commentBody, commentAuthor);
-  }
  
   // Main content
   return (
