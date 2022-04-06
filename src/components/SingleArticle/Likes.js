@@ -44,7 +44,7 @@ const Likes = ({ likes, article_id }) => {
                 id="likes-button"
                 onClick={() => addOrRemoveLike()}
             >
-                <i className="fa-regular fa-thumbs-up" aria-label="Likes"></i>  { likes + likesChange }
+                <i className="fa-regular fa-thumbs-up" aria-label="Likes"></i>  { likes }
             </button>
         </>
     );
