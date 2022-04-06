@@ -66,15 +66,11 @@ const SingleArticle = () => {
     // Handle form submission
     const handleFormSubmit = (event) => {
       event.preventDefault(); // prevent default page refresh when button is pressed
-      
-      postComment(article_id, commentBody, commentAuthor);  // submit the comment data
-     
+      postComment(article_id, commentBody, commentAuthor);  // submit comment data
       event.target.reset();  // clear form input field
-
-      navigate(`/articles/${article_id}/#comments`);  // scroll to #comments section ** scroll not working
+      navigate(`/articles/${article_id}/#comments`);  // scroll to #comments section
     }
-
-
+    
 
     // Conditional loading
     if (isLoading) return <p className="loading-message"><i className="fa-solid fa-spinner"></i>Loading</p>;

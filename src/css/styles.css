@@ -292,12 +292,12 @@ main.article-page article .comments-and-likes-count {
 
 /* articles page - comments */
 main.article-page .comments {
-  margin-top: 2rem;
   border-top: 1px dashed var(--col-dividers-borders);
-  padding-top: 0.75rem;
+  padding-top: 2rem;
+  margin-top: 1rem;
 }
 main.article-page .comments h3 {
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
 }
 main.article-page .comments h3 i {
   margin-right: 6px; 
@@ -310,7 +310,7 @@ main.article-page .comments a.leave-comment {
   display: block;
   font-size: 0.875rem; /* 14px default */
   font-weight: bold;
-  margin-bottom: 2rem;
+  margin-bottom: 0rem;
 }
 main.article-page .comments a.leave-comment i {
   margin-left: 10px;
@@ -374,8 +374,9 @@ main.article-page .comments .comment.by-author h5.comment-author::after {
 
 /* articles page - 'leave comment' form */
 section.leave-comment {
+  margin-top: 1rem;
   border-top: 1px dashed var(--col-dividers-borders);
-  padding-top: 3rem;
+  padding-top: 2rem;
 }
 section.leave-comment h3 {
   margin-bottom: 0.5rem;;
