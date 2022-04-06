@@ -4,7 +4,7 @@
 import SingleComment from './SingleComment';
 
 // Main content
-const Comments = ({ article_id, currentArticle, comments, formatDateAndTime, handleFormSubmit, setCommentBody, commentAuthor }) => {  
+const Comments = ({ article_id, currentArticle, comments, setComments, formatDateAndTime, handleFormSubmit, setCommentBody, commentAuthor }) => {  
 
  
   // Main content
@@ -46,6 +46,8 @@ const Comments = ({ article_id, currentArticle, comments, formatDateAndTime, han
           return (
             <SingleComment
               comment={ comment }
+              comments = { comments }
+              setComments = { setComments } 
               currentArticle={ currentArticle } 
               formatDateAndTime = { formatDateAndTime }
               key={ comment.comment_id }

@@ -67,6 +67,16 @@ const newsApi = axios.create({
             });
         };
 
+    // delete a comment on an article
+    export const deleteComment = (comment_id) => {
+        return newsApi
+            .delete(`/comments/${comment_id}`) 
+            .then(({ data }) => {
+                return data.comment; 
+            });
+        };
+
+
 
     // return array of 'topics' objects
     export const getTopics = () => {

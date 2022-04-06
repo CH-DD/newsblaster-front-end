@@ -1,13 +1,18 @@
 // React stuff
 import { useEffect, useState } from "react"; 
+import { useContext } from 'react'; // to access current user context
+import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 
 // Custom utils & components
 import defaultAvatar from '../../images/user-avatar-placeholder.png'; 
-import { getUserData } from "../../utils/apiUtils";
+import { getUserData, deleteComment } from "../../utils/apiUtils";
 
 
 
-const SingleComment = ({ comment, currentArticle, formatDateAndTime }) => {
+const SingleComment = ({ comment, comments, setComments, currentArticle, formatDateAndTime }) => {
+
+    // State: logged in user
+    const { currentUser } = useContext(CurrentUserContext);
 
     // Value: current comment author's username (used in useEffect)
     const userName = comment.author;
@@ -35,11 +40,24 @@ const SingleComment = ({ comment, currentArticle, formatDateAndTime }) => {
             return "comment by-author";  
         }
     }
+
+    // Delete button - conditional loading for current user only
+    function showDeleteButton() {
+        if(comment.author === currentUser) {
+            return true;
+        }
+    }
+    // Delete button function
+    function handleDelete() {
+        deleteComment(comment.comment_id); // delete from db
+    } 
+    
     
 
     return (  
         <div 
             className={commentClassBasedOnAuthor(comment.author)}
+            id={ comment.comment_id }
         >
 
             <div className="meta">
@@ -56,13 +74,16 @@ const SingleComment = ({ comment, currentArticle, formatDateAndTime }) => {
                 />
                 
                 <div className="author-and-date">
-                <h5 className="comment-author">{ userName }</h5>
-                <p className="date">{formatDateAndTime(comment.created_at)}</p>
+                    <h5 className="comment-author">{ userName }</h5>
+                    <p className="date">{formatDateAndTime(comment.created_at)}</p>
                 </div>
             </div>
             
             <p className="body">{comment.body}</p>
-
+         
+            { showDeleteButton() && (
+                <button className="cta" onClick={handleDelete}><i className="fa-solid fa-xmark"></i> Delete</button>
+            )}
         </div>
     );
 }

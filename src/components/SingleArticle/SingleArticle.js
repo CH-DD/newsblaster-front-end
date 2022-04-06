@@ -32,7 +32,7 @@ const SingleArticle = () => {
         setCurrentArticle(fetchedData);
         // setIsLoading(false);
       });
-    }, [article_id]);
+    }, [article_id, comments]); // reloads when article id or comments are updated
 
     // useEffect: get comments from API
     useEffect(() => {
@@ -57,7 +57,7 @@ const SingleArticle = () => {
     const navigate = useNavigate();
 
     // State: logged in user
-    const { currentUser, setCurrentUser } = useContext(CurrentUserContext);
+    const { currentUser } = useContext(CurrentUserContext);
 
     // State: to store form input values
     const [ commentBody, setCommentBody ] = useState("");             
@@ -70,7 +70,7 @@ const SingleArticle = () => {
       event.target.reset();  // clear form input field
       navigate(`/articles/${article_id}/#comments`);  // scroll to #comments section
     }
-    
+
 
     // Conditional loading
     if (isLoading) return <p className="loading-message"><i className="fa-solid fa-spinner"></i>Loading</p>;
@@ -114,7 +114,8 @@ const SingleArticle = () => {
           <Comments 
             article_id={ article_id } 
             currentArticle = { currentArticle } 
-            comments={ comments }
+            comments={ comments } 
+            setComments={ setComments } 
             formatDateAndTime = { formatDateAndTime }
             handleFormSubmit = { handleFormSubmit } 
             commentBody = { commentBody } 
