@@ -93,8 +93,8 @@ header {
 }
 header nav {
   display: grid;
-  grid-template-columns: 1fr auto auto auto;
-  grid-gap: 4%;
+  grid-template-columns: 1fr auto auto;
+  grid-gap: 6%;
   max-width: 1240px;
   margin-right: auto;
   margin-left: auto; 
@@ -105,7 +105,7 @@ header nav {
 header nav h3#logo {
   color: #fff;
   margin-top: 8px;
-  font-size: 1.75rem; /* 28px default */
+  font-size: 1.3125rem; /* 21px default */
 }
 header nav h3#logo span {
   color: var(--col-brand-tertiary);
@@ -123,6 +123,9 @@ header nav a {
   text-align: center;
   color: var(--col-bg)
 }
+header nav a.page-link {
+  font-size: 0.875rem;
+}
 header nav p.user {
   margin-bottom: 0;
   color: var(--col-bg);
@@ -139,18 +142,22 @@ header nav p.user i {
   padding: 0.75em 2% 0.75em 2%;
   margin-top: 62px;
 }
-.sub-nav p {
+.sub-nav .container {
   margin: 0 auto;
   max-width: 1260px;
+  display: grid;
+  grid-template-columns: 1fr;
+}
+.sub-nav .container div {
   text-align: center;
   font-size: 12px;
   color: var(--col-brand-secondary);
 }
-.sub-nav p span.label {
+
+.sub-nav span.label {
   margin-right: 0.5rem;
 }
-.sub-nav p button {
-  /* border: 1px solid var(--col-brand-primary); */
+.sub-nav button {
   padding: 0.65rem 1.25rem;
   border-radius: 25px;
   font-size: 12px;
@@ -159,6 +166,7 @@ header nav p.user i {
   margin: 0 2px 6px 2px;
   display: inline-block;
   background: none;
+  height: 3rem;
 }
 .sub-nav button:hover,
 .sub-nav button.active {
@@ -167,6 +175,20 @@ header nav p.user i {
   text-decoration: none;
   opacity: 1;
   border-color: var(--col-bg);
+}
+.sub-nav .sort-by {
+  /* mobile-only styling*/
+  border-bottom: 1px dashed var(--col-dividers-borders);
+  padding-bottom: 3px;
+  margin-bottom: 5px;
+}
+
+.sub-nav select {
+  text-transform: uppercase;
+  letter-spacing: 0.04rem;
+  /* color: var(--col-brand-primary); */
+  /* font-weight: bold; */
+  height: 3rem;
 }
 
 /* layout & main components */
@@ -373,10 +395,10 @@ main.article-page .comments button i {
 
 main.article-page .comments .comment.by-author h5.comment-author {
   color: var(--col-brand-primary);
+  font-weight: bold;
 }
 main.article-page .comments .comment.by-author h5.comment-author::after {
   content: " (author)";
-  font-weight: 400;
 }
 
 /* articles page - 'leave comment' form */
@@ -449,7 +471,7 @@ footer {
   
 
 /* forms */
-input, textarea, button {
+input, textarea, button, select {
   padding: 0.75rem 1rem;
   font-size: 1.25rem;
   border: none;
@@ -462,6 +484,16 @@ input, textarea {
 label {
   margin-bottom: 0.3125rem; /* 5px default */
   display: block;
+}
+select {
+  font-family: var(--font-fam);
+  font-size: 0.75rem; /* 12px */
+  background: none;
+  cursor: pointer;
+  border-radius: 25px;
+}
+select:hover {
+  background: var(--col-bg);
 }
 form p.error,
 form p.success {
@@ -523,6 +555,9 @@ button.cta:hover {
 /* medium devices, 768px + */
 @media only screen and (min-width: 768px) {
 
+  header nav h3#logo {
+    font-size: 1.75rem; /* 28px default */
+  }
   header nav h3#logo small {
     color: var(--col-bg);
     font-size: 0.75rem; /* 12px default */
@@ -531,8 +566,31 @@ button.cta:hover {
     margin-left: 10px;
     display: inline;
   }
-  .sub-nav p {
+  header nav a.page-link {
+    font-size: 1rem;
+  }
+
+  .sub-nav .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+  }
+  .sub-nav button {
+    height: 3.75rem;
+  }
+  .sub-nav .container .topics {
     text-align: right; 
+  }
+  .sub-nav .container .sort-by {
+    text-align: left; 
+    /* reset mobile-only styling */
+    border-bottom: none;
+    padding-bottom: 0;
+    margin-bottom: 0;
+  }
+  .sub-nav .container select {
+    color: var(--col-brand-secondary);
+    font-weight: normal;
+    height: 3.75rem;    
   }
 
   h2 {

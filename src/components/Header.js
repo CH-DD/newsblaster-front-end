@@ -6,17 +6,16 @@ import { CurrentUserContext } from '../contexts/CurrentUserContext';
 const Header = ( ) => {  
 
   // State: logged in user
-  const { currentUser, setCurrentUser } = useContext(CurrentUserContext);
+  const { currentUser } = useContext(CurrentUserContext);
 
   return (
     <header>
       <nav>        
-        <h3 id = "logo">
+        <h3 id="logo">
           <Link to="/" title="Go to home page">News<span>blaster </span> <small>blasting words in your face 24/7</small></Link>
         </h3>
 
-        <Link to="/">News</Link>
-        <Link to="/topics">Topics</Link>
+        <Link className="page-link" to="/">Home</Link>
         <Link to="/user" title="Switch User Account">
           <p className="user"><i className="fa-solid fa-user-large"></i> { currentUser }</p>
         </Link>

@@ -54,51 +54,57 @@ const ArticlesList = () => {
     <> 
       <section className="sub-nav">
 
-        {/* Topic sorting - in progress */}
-        <p className="topics">
+        <div className="container">
 
-          <select onChange={handleTopicChange} id="topics">
-            
-            <option value="">All topics</option>
+          {/* Sorting buttons */}
+          <div className="sort-by">
+            <button       
+              className={activeMenuItem === 'latest' ? 'active nav-link' : 'nav-link'}  
+              onClick = {() => {
+                  setSortBy("created_at");
+                  setActiveMenuItem('latest');
+            }}>
+              Latest
+            </button>
 
-            { // list topics from db as drop down options
-            topics.map((topic) => {
-              return (
-                <option key={topic.slug} value={topic.slug} name={topic.slug}>{ topic.slug }</option>
-              )
-            })
-          }
-          </select>
-        </p>
+            <button           
+              className={activeMenuItem === 'most-comments' ? 'active nav-link' : 'nav-link'}
+              onClick = {() => {
+                  setSortBy("comment_count");
+                  setActiveMenuItem("most-comments");
+            }}>
+              Most Comments
+            </button>
 
-        <p className="sort-by">
-          <button       
-            className={activeMenuItem === 'latest' ? 'active nav-link' : 'nav-link'}  
-            onClick = {() => {
-                setSortBy("created_at");
-                setActiveMenuItem('latest');
-          }}>
-            Latest
-          </button>
+            <button 
+              className={activeMenuItem === 'popular' ? 'active nav-link' : 'nav-link'}
+              onClick = {() => {
+                  setSortBy("votes");
+                  setActiveMenuItem("popular");
+            }}>
+              Popular
+            </button>
+          </div>
 
-          <button           
-            className={activeMenuItem === 'most-comments' ? 'active nav-link' : 'nav-link'}
-            onClick = {() => {
-                setSortBy("comment_count");
-                setActiveMenuItem("most-comments");
-          }}>
-            Most Comments
-          </button>
+          {/* Topic selector */}
+          <div className="topics">
 
-          <button 
-            className={activeMenuItem === 'popular' ? 'active nav-link' : 'nav-link'}
-            onClick = {() => {
-                setSortBy("votes");
-                setActiveMenuItem("popular");
-          }}>
-            Popular
-          </button>
-        </p>
+            <select onChange={handleTopicChange} id="topics">
+              
+              <option value="">All Topics</option>
+
+              { // list topics from db as drop down options
+              topics.map((topic) => {
+                return (
+                  <option key={topic.slug} value={topic.slug} name={topic.slug} >{ topic.slug }</option>
+                )
+              })
+            }
+            </select>
+          </div>
+
+        </div>
+
       </section>
 
       <main className= "articles-page">

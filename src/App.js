@@ -5,7 +5,6 @@ import { useState } from "react";
 // Custom utils & components
 import { Header } from "./components/Header";
 import { ArticlesList } from "./components/Articles/ArticlesList";
-import { Topics } from "./components/Topics";
 import { SingleArticle } from "./components/SingleArticle/SingleArticle";
 import { UserPage } from "./components/UserPage";
 import { ErrorPage} from "./components/ErrorPage";
@@ -31,7 +30,6 @@ function App() {
             <Routes>
               <Route path="/" element={<ArticlesList />} />
               <Route path="/articles" element={<ArticlesList />} />
-              <Route path="/topics" element={<Topics />} />
               <Route path="/articles/:article_id" element={<SingleArticle />} />
               <Route path="/user" element={<UserPage />} />
 
