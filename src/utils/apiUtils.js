@@ -12,10 +12,10 @@ const newsApi = axios.create({
 // Articles & Comments
 
     // return array of 'article' objects, sorted by a given parameter
-    export const getArticles = (sort_by) => {
+    export const getArticles = (sort_by, topic) => {
     return newsApi
         .get("/articles", {
-            params: { limit: 100, sort_by}
+            params: { limit: 100, sort_by, topic }
         })
         .then(({ data }) => {
             return data.articles;  

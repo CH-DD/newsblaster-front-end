@@ -41,7 +41,7 @@ const SingleComment = ({ comment, comments, setComments, currentArticle, formatD
         }
     }
 
-    // Delete button - conditional loading for current user only
+    // Delete button - conditional loading to ensure it appears only for current user's comments
     function showDeleteButton() {
         if(comment.author === currentUser) {
             return true;

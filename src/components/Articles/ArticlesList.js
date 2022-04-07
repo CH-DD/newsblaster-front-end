@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 
 // Custom utils & components
-import { getArticles } from "../../utils/apiUtils";
+import { getArticles, getTopics } from "../../utils/apiUtils";
 import { ArticlePreview } from "./ArticlePreview";
 import { pageTitle} from "../../utils/pageTitle"; 
 
@@ -10,26 +10,41 @@ const ArticlesList = () => {
 
   // Set page title
   pageTitle( "NewsBlaster...blasting words in your face 24/7");
-
-  // State: articles data 
-  const [articles, setArticles] = useState([]);
-
+  
   // State: loading message whilst retrieving data
   const [isLoading, setIsLoading] = useState(true);
 
-  // State: article sorting. options include: created_at, comment_count, votes
+  // State: article & topics data 
+  const [articles, setArticles] = useState([]);
+  const [topics, setTopics] = useState([]);
+
+  // State: article sorting & topics. 
+  // sorting options include: created_at, comment_count, votes
   const [sortBy, setSortBy] = useState("created_at"); // default
+  const [topic, setTopic] = useState(""); 
     
-  // useEffect: get article data from API
+  // useEffect: get article & topics data from API
   useEffect(() => {
-    getArticles(sortBy).then((articlesFromApi) => {  
+    getArticles(sortBy, topic).then((articlesFromApi) => {  
       setArticles(articlesFromApi);
-      setIsLoading(false);
     });
-  }, [sortBy]);
+  }, [sortBy, topic]);
+
+  useEffect(() => {
+    getTopics().then((topicsFromApi) => {
+      setTopics(topicsFromApi);
+      setIsLoading(false);
+      console.log(topicsFromApi);
+    });
+  }, []);
 
   // State: to toggle 'sort by' active button
   const [activeMenuItem, setActiveMenuItem] = useState("latest"); 
+
+  // Function: Topic selection. Use option 'value' as topic.
+  function handleTopicChange({ target: { value } }) {
+    setTopic(value);
+  }
 
   // Conditional loading message
   if (isLoading) return <p className="loading-message"><i className="fa-solid fa-spinner"></i>Loading</p>;
@@ -38,7 +53,25 @@ const ArticlesList = () => {
   return (
     <> 
       <section className="sub-nav">
-        <p>
+
+        {/* Topic sorting - in progress */}
+        <p className="topics">
+
+          <select onChange={handleTopicChange} id="topics">
+            
+            <option value="">All topics</option>
+
+            { // list topics from db as drop down options
+            topics.map((topic) => {
+              return (
+                <option key={topic.slug} value={topic.slug} name={topic.slug}>{ topic.slug }</option>
+              )
+            })
+          }
+          </select>
+        </p>
+
+        <p className="sort-by">
           <button       
             className={activeMenuItem === 'latest' ? 'active nav-link' : 'nav-link'}  
             onClick = {() => {
