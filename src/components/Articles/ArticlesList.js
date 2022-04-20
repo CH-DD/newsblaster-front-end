@@ -34,7 +34,6 @@ const ArticlesList = () => {
     getTopics().then((topicsFromApi) => {
       setTopics(topicsFromApi);
       setIsLoading(false);
-      console.log(topicsFromApi);
     });
   }, []);
 
@@ -44,6 +43,19 @@ const ArticlesList = () => {
   // Function: Topic selection. Use option 'value' as topic.
   function handleTopicChange({ target: { value } }) {
     setTopic(value);
+  }
+
+   // Function: Topic selection from link in article preview meta.
+   function handleTopicChangeFromMeta(topic) {
+    // change topic in dropdown select menu
+    let elem = document.getElementById("topics");
+    elem.value = topic; 
+
+    // set topic for articles
+    setTopic(topic);
+
+    console.log(topic, elem);
+
   }
 
   // Conditional loading message
@@ -117,6 +129,11 @@ const ArticlesList = () => {
               // article preview
               return (
                 <article className="article-preview" key={article.article_id}>
+
+                  {/* TESTING THIS BUTTON */}
+                  <p><button onClick={() => {handleTopicChangeFromMeta("coding")}} >Click</button></p>
+
+
                   <ArticlePreview article={article} />
                 </article>
               ) 
