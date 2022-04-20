@@ -8,13 +8,14 @@ const ArticlePreview = (props) => {
 
     return (
         <>
+
             <h2><Link to={`/articles/${props.article.article_id}`} >
             {props.article.title}</Link>
             </h2>
             
             <section className="post-meta">
                 
-                <p className="author-topic-and-date">by {props.article.author} · <Link className="topic" to={`/topics/${props.article.topic}`}>{props.article.topic}</Link> · {formatDate(props.article.created_at)} </p>
+                <p className="author-topic-and-date">by {props.article.author} · <a className="topic" href="#" onClick={() => {props.handleTopicChangeFromMeta(props.article.topic)}} >{props.article.topic}</a> · {formatDate(props.article.created_at)} </p>
 
                 <p className="comments-and-likes-count">
                     <a className="comments-link" title="View Comments" href={`/articles/${props.article.article_id}#comments` }>

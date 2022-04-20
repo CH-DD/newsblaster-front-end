@@ -45,7 +45,7 @@ const ArticlesList = () => {
     setTopic(value);
   }
 
-   // Function: Topic selection from link in article preview meta.
+   // Function: Topic selection from link in article preview meta tag. Refreshes the articles list.
    function handleTopicChangeFromMeta(topic) {
     // change topic in dropdown select menu
     let elem = document.getElementById("topics");
@@ -53,9 +53,6 @@ const ArticlesList = () => {
 
     // set topic for articles
     setTopic(topic);
-
-    console.log(topic, elem);
-
   }
 
   // Conditional loading message
@@ -130,11 +127,10 @@ const ArticlesList = () => {
               return (
                 <article className="article-preview" key={article.article_id}>
 
-                  {/* TESTING THIS BUTTON */}
-                  <p><button onClick={() => {handleTopicChangeFromMeta("coding")}} >Click</button></p>
-
-
-                  <ArticlePreview article={article} />
+                  <ArticlePreview 
+                    article={article}  
+                    handleTopicChangeFromMeta={handleTopicChangeFromMeta}
+                  />
                 </article>
               ) 
             })
