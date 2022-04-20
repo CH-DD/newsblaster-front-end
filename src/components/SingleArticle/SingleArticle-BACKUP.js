@@ -23,19 +23,12 @@ const SingleArticle = () => {
     // useParams: grab current article id parameter from URL
     const { article_id } = useParams();
 
-    // State: Error handling when getting article data
-    const [error, setError] = useState(null);
-
     // useEffect: get article data from API
     useEffect(() => {
       getArticleById(article_id)
         .then((fetchedData) => {  
           setCurrentArticle(fetchedData);
-        })
-        .catch((err) => {
-          //  set error message if article not found
-          setError("The article you are looking for does not seem to exist.");
-          setIsLoading(false);
+          // setIsLoading(false);
         });
     }, [article_id, comments]); // reloads when article id or comments are updated
 
@@ -44,7 +37,7 @@ const SingleArticle = () => {
       getArticleComments(article_id)
         .then((fetchedData) => {  
           setComments(fetchedData);
-          setIsLoading(false); // cancel loading once comments received
+          setIsLoading(false);
         });
     }, [article_id, comments]); // reloads when article id or comments are updated
 
@@ -52,8 +45,6 @@ const SingleArticle = () => {
     // Set page title - allow for data fetching delay
     if (isLoading) {
       pageTitle("Loading...");
-    } else if (error) {
-      pageTitle("Article Not Found  | Newsblaster");
     } else {
       pageTitle(currentArticle.title + " | Newsblaster");
     }
@@ -82,8 +73,6 @@ const SingleArticle = () => {
 
     // Conditional loading
     if (isLoading) return <p className="loading-message"><i className="fa-solid fa-spinner"></i>Loading</p>;
-
-    else if (error) return <main class="error-page text-page"><h1>Oh no!</h1><h3>{error}</h3><p>Go to <a href="/">home page</a>.</p></main>;
 
     // Main content
     return (

@@ -7,18 +7,12 @@ import { pageTitle } from "../utils/pageTitle";
 const ErrorPage = () => {  
 
   // Set page title
-  pageTitle( "Error | Newsblaster");
+  pageTitle( "Page Not Found | Newsblaster");
 
   return (
-    <main className = "error-page">
-      <br>
-      </br>
-      <br>
-      </br>
-      <br>
-      </br>
+    <main className = "error-page text-page">
         <h1>Oops!</h1>
-        <h3>We cannot find that page right now.</h3>
+        <h3>We cannot find a page at this web address.</h3>
         <p>Go to <a href="/">home page</a>.</p>
     </main>
   )

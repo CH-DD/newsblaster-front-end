@@ -33,6 +33,7 @@ function App() {
               <Route path="/articles/:article_id" element={<SingleArticle />} />
               <Route path="/user" element={<UserPage />} />
 
+              {/* 'catch all' for page navigation errors */}
               <Route path="*" element={<ErrorPage />} />
             </Routes>
         </>

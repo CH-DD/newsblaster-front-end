@@ -460,7 +460,11 @@ main.user-page p.disclaimer {
   margin-bottom: 0;
 }
 
-
+/* error page */
+main.error-page {
+  margin-top: 112px;
+  text-align: center;
+}
 
 /* footer */
 footer {
