@@ -1,70 +1,59 @@
-# Getting Started with Create React App
+# NewsBlaster - A news & discussion website built in React
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![image](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![image](https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E)
+![image](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
+![image](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
+![image](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
 
-## Available Scripts
+## About the App
+NewsBlaster is an example of a news aggregation, rating and discussion website, created in early 2022 as a solo task on the [Northcoders](https://northcoders.com/) software development bootcamp. The idea was to pull together different front-end skills, technologies and best practices learnt in the first 8-9 weeks of the course.
 
-In the project directory, you can run:
+The site features articles divided into topics. Each article has a 'likes' and 'comments' count, and can be 'liked' or 'unliked' by the user. Articles can be sorted by date, comment count, popularity (likes), and filtered by topic.
 
-### `npm start`
+Users can add comments to an article, and delete their previous comments. They also have the ability to switch user accounts (a temporary feature to demonstrate posting & deleting comments as different users). 
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+The site's front end was built using the [React.js](https://reactjs.org/) framework.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+YouTube preview: ----YOUTUBE LINK TO GO HERE----
 
-### `npm test`
+Hosted website: ----HOSTED LINK TO GO HERE----
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Technology used
 
-### `npm run build`
+React/Node.js was used for the front end to create a single-page application (SPA), with various 'routes' set up to display relevant data. The [axios](https://www.npmjs.com/package/axios) package assisted in making API calls to server endpoints. 
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+The app's front end interacts with a self-hosted REST API to retrieve/modify articles and associated data such as users, likes and comments. This back end server was set up as an earlier bootcamp project.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Within the React project, React Router v6 was used to handle URL routes, along with built-in 'hooks' (functions) such as useEffect to make calls to the server, useState to update data, and useContext to handle the current logged in user. 
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+The project features a number of custom components and JavaScript-based functions, a 'loading' spinner, error handling, and 'optimistic rendering' to update an article's likes count instantly - before updating data on the server.
 
-### `npm run eject`
+The user interface features a 'responsive' CSS grid-based layout, with web fonts imported from Google Fonts, and icons from Font Awesome.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Planning
+In the early stages of the project, wireframes were created to help guide the layout and component structure of the final product. There was some slight deviation as the project developed. 
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+----WIREFRAMES GO HERE----
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Run the App Locally
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- First, download the project into a local folder. In your terminal, run:
 
-## Learn More
+  `git clone https://github.com/CH-DD/nc-news-front-end.git` (if using HTTPS)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+  `git clone git@github.com:CH-DD/nc-news-front-end.git` (if using SSH)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- Then navigate into the new folder, and install dependencies:
 
-### Code Splitting
+  `cd nc-news-front-end`
+  
+  `npm install`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Credits
+- [React](https://reactjs.org/) - Front end framework
+- [axios (npm package)](https://www.npmjs.com/package/axios) - to assist with HTTP requests
+- [Google Fonts](https://fonts.google.com/) - Web fonts
+- [Font Awesome](https://fontawesome.com/) - Icon library
+- [Node.js](https://nodejs.org/) - JavaScript runtime environment
+- [npm](https://www.npmjs.com/) - Node.js package manager

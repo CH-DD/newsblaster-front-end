@@ -177,17 +177,15 @@ header nav p.user i {
   border-color: var(--col-bg);
 }
 .sub-nav .sort-by {
-  /* mobile-only styling*/
+  /* mobile-only styling */
   border-bottom: 1px dashed var(--col-dividers-borders);
   padding-bottom: 3px;
   margin-bottom: 5px;
 }
 
 .sub-nav select {
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
   letter-spacing: 0.04rem;
-  /* color: var(--col-brand-primary); */
-  /* font-weight: bold; */
   height: 3rem;
 }
 
@@ -240,6 +238,7 @@ main article .post-meta {
 }
 main article .post-meta .topic {
     font-weight: 700;
+    color: var(--col-brand-primary);
 }
 main article .post-meta .author-topic-and-date {
   border-bottom: 1px dashed var(--col-dividers-borders);
@@ -664,6 +663,4 @@ button.cta:hover {
     font-size: 4rem;
   }
 
-
 }
-

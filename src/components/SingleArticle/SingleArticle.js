@@ -1,6 +1,6 @@
 // React stuff
 import { useEffect, useState, useContext } from "react"; 
-import { useParams, Link, useNavigate } from 'react-router-dom'; 
+import { useParams, useNavigate } from 'react-router-dom'; 
 
 // Custom utils & components
 import { getArticleById, getArticleComments, postComment } from "../../utils/apiUtils"; // data fetching
@@ -83,7 +83,7 @@ const SingleArticle = () => {
     // Conditional loading
     if (isLoading) return <p className="loading-message"><i className="fa-solid fa-spinner"></i>Loading</p>;
 
-    else if (error) return <main class="error-page text-page"><h1>Oh no!</h1><h3>{error}</h3><p>Go to <a href="/">home page</a>.</p></main>;
+    else if (error) return <main className="error-page text-page"><h1>Oh no!</h1><h3>{error}</h3><p>Go to <a href="/">home page</a>.</p></main>;
 
     // Main content
     return (
@@ -94,7 +94,7 @@ const SingleArticle = () => {
           <section className="main-content">
 
             <section className="post-meta before-heading">
-                <p className="author-topic-and-date"><Link className="topic" to={`/topics/${currentArticle.topic}`}>{currentArticle.topic}</Link> · {formatDate(currentArticle.created_at)}</p>
+                <p className="author-topic-and-date"><span className="topic">{currentArticle.topic}</span> · {formatDate(currentArticle.created_at)}</p>
             </section>
 
             <h2> { currentArticle.title }</h2>  
