@@ -237,8 +237,16 @@ main article .post-meta {
   font-weight: 500;
 }
 main article .post-meta .topic {
-    font-weight: 700;
-    color: var(--col-brand-primary);
+  font-weight: 700;
+  color: var(--col-brand-primary);
+  /* override button styling on home/articles pages */
+  font-size: 0.875rem;
+  padding: 0;
+  height: auto;
+  background: none;
+}
+main article .post-meta button.topic:hover {
+  text-decoration: underline;
 }
 main article .post-meta .author-topic-and-date {
   border-bottom: 1px dashed var(--col-dividers-borders);
