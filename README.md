@@ -1,10 +1,6 @@
 # NewsBlaster - A news & discussion website built in React
 
-![image](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
-![image](https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E)
-![image](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
-![image](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
-![image](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
+![image](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB) ![image](https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E) ![image](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white) ![image](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white) ![image](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
 
 ## About
 NewsBlaster is a news aggregation, rating and discussion website. Created in early 2022 as a solo project on the [Northcoders](https://northcoders.com/) software development bootcamp. The project pulls together front-end skills from the first 8 weeks of the course.
@@ -13,11 +9,11 @@ The site features articles divided into topics. Each article has a 'likes' and '
 
 Users can add comments to an article, and delete their previous comments. They also have the ability to switch user accounts (a temporary feature to demonstrate posting & deleting comments as different users). 
 
-Built using the [React.js](https://reactjs.org/) framework.
+Built using React.js.
 
 **Live website: [https://newsblaster.netlify.app](https://newsblaster.netlify.app)**
 
-**YouTube preview: ----YOUTUBE LINK TO GO HERE----**
+![newsblaster-screenshot-preview-small](https://user-images.githubusercontent.com/68435229/166720465-4ccc32a9-ffd3-4578-88ef-c7c68d54d3d9.jpg)
 
 
 ## Technology used
@@ -63,7 +59,7 @@ In the early stages of the project, wireframes were created as a general guide t
 
 
 ## Credits
-- [React](https://reactjs.org/) - Front end framework
+- [React](https://reactjs.org/) - Front end development library
 - [axios (npm package)](https://www.npmjs.com/package/axios) - to assist with HTTP requests
 - [Google Fonts](https://fonts.google.com/) - Web fonts
 - [Font Awesome](https://fontawesome.com/) - Icon library
